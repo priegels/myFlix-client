@@ -14,6 +14,7 @@ export class MainView extends React.Component {
     }
   }
 
+  /* old version written out
   render() {
     const movies = this.state.movies;
     if (movies.length === 0){
@@ -27,5 +28,20 @@ export class MainView extends React.Component {
         </div>
       );
     }
+  }
+} */
+
+
+//condensed version featuring object destruction
+  render() {
+    const { movies } = this.state;
+
+    if (movies.length === 0) return <div className="main-view">The list is empty!</div>;
+
+    return (
+      <div className="main-view">
+        {movies.map(movie => <div key={movie._id}>{movie.Title}</div>)}
+      </div>
+    );
   }
 }
