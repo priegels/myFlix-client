@@ -2,13 +2,30 @@ import React from 'react';
 
 export class MainView extends React.Component {
 
+  //constructor initializing a state's values before render()
+  constructor(){
+    super();
+    this.state = {
+      movies: [
+        { _id: 1, Title: 'Inception', Description: 'desc1...', ImagePath: '...'},
+        { _id: 2, Title: 'The Shawshank Redemption', Description: 'desc2...', ImagePath: '...'},
+        { _id: 3, Title: 'Gladiator', Description: 'desc3...', ImagePath: '...'}
+      ]
+    }
+  }
+
   render() {
-    return (
-      <div className="main-view">
-        <div>Inception</div>
-        <div>The Shawshank Redemption</div>
-        <div>Gladiator</div>
-      </div>
-    );
+    const movies = this.state.movies;
+    if (movies.length === 0){
+      return <div className="main-view">The list is empty!</div>
+    } else {
+      return (
+        <div className="main-view">
+          {movies.map((movie) => {
+            return <div>{movie.Title}</div>;
+          })}
+        </div>
+      );
+    }
   }
 }
