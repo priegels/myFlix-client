@@ -17,36 +17,30 @@ export class MainView extends React.Component {
     };
   }
 
-  /* old version written out
-  render() {
-    const movies = this.state.movies;
-    if (movies.length === 0){
-      return <div className="main-view">The list is empty!</div>
-    } else {
-      return (
-        <div className="main-view">
-          {movies.map((movie) => {
-            return <div>{movie.Title}</div>;
-          })}
-        </div>
-      );
-    }
+//custom component method 
+  setSelectedMovie(newSelectedMovie) {
+    this.setState({
+      selectedMovie: newSelectedMovie
+    });
   }
-} */
-
 
 //condensed version featuring object destruction
   render() {
     const { movies, selectedMovie } = this.state;
 
-    if (selectedMovie) return <MovieView movie = {selectedMovie} />;
-
     if (movies.length === 0) return <div className="main-view">The list is empty!</div>;
 
     return (
       <div className="main-view">
-        {movies.map(movie => <MovieCard key={movie._id} movie={movie} onMovieClick={newSelectedMovie => { this.setState({ selectedMovie: newSelectedMovie }); }} />)}
+        {selectedMovie 
+          ? <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
+          : movies.map(movie => (
+            <MovieCard key={movie._id} movie={movie} onMovieClick={(movie) => { this.setSelectedMovie(movie) }}/>
+          ))
+        }
       </div>
     );
   }
+
 }
+
