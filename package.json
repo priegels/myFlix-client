@@ -19,8 +19,10 @@
   "homepage": "https://github.com/priegels/myFlix-client#readme",
   "dependencies": {
     "axios": "^0.24.0",
+    "bootstrap": "^5.1.3",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
+    "react-bootstrap": "^2.0.1",
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
