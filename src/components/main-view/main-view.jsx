@@ -1,6 +1,8 @@
 import React from 'react';
 // axios library to import database's API
 import axios from 'axios';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 import { RegistrationView } from '../registration-view/registration-view';
 import { LoginView } from '../login-view/login-view';
@@ -79,10 +81,22 @@ logged in, the user details are passed as a prop to the LoginView */
         {/*If the state of selectedMovie is not null, that selected Movie will be returned,
         otherwise all movies will be returned*/}
         {selectedMovie 
-          ? <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
-          : movies.map(movie => (
+          ? (
+            <Row className="justify-content-md-center">
+              <Col md={8}>
+                <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
+              </Col>
+            </Row>
+          )
+          : (
+            <Row className="justify-content-md-center">
+            {movies.map(movie => (
+              <Col md={3}>
             <MovieCard key={movie._id} movie={movie} onMovieClick={(movie) => { this.setSelectedMovie(movie) }}/>
-          ))
+              </Col>
+            ))}
+          </Row>
+          )
         }
       </div>
     );
