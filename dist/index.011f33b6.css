@@ -1,0 +1,22 @@
+.registerCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px auto;
+  background-color: blue !important;
+}
+.navbarColor {
+  background-color: red;
+}
+.loginCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px auto;
+  background-color: blue !important;
+}
+
+.my-flix {
+  color: steelblue;
+}
+/*# sourceMappingURL=index.011f33b6.css.map */
