@@ -8,6 +8,10 @@
 .navbarColor {
   background-color: red;
 }
+
+.navbar-collapse {
+  flex-grow: unset !important;
+}
 .loginCard {
   display: flex;
   justify-content: center;
@@ -15,6 +19,7 @@
   margin: 40px auto;
   background-color: blue !important;
 }
+
 
 .my-flix {
   color: steelblue;
