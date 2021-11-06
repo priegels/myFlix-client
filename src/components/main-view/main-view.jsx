@@ -1,8 +1,8 @@
 import React from 'react';
 // axios library to import database's API
 import axios from 'axios';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+
+import {Row, Col, Container, Navbar, Nav, Form, FormControl, Button} from 'react-bootstrap';
 
 import { RegistrationView } from '../registration-view/registration-view';
 import { LoginView } from '../login-view/login-view';
@@ -64,6 +64,7 @@ to that particular user */
 
 //condensed version featuring object destruction
   render() {
+    
     const { movies, selectedMovie, user, register } = this.state;
 
     if (!register) return <RegistrationView onRegistration={register => this.onRegistration(register)} />;
@@ -78,6 +79,30 @@ logged in, the user details are passed as a prop to the LoginView */
 
     return (
       <div className="main-view">
+        
+      <Navbar expand="lg">
+        <Container fluid>
+          <Navbar.Brand href="#home">K-Flix</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+              <Nav.Link href="#home">Home</Nav.Link>
+              <Nav.Link href="#profile">Profile</Nav.Link>
+              <Nav.Link href="#logout">Logout</Nav.Link>
+            </Nav>
+            <Form className="d-flex">
+              <FormControl
+                type="search"
+                placeholder="Search"
+                className="me-2"
+                aria-label="Search"
+              />
+              <Button variant="outline-success">Search</Button>
+            </Form>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+
         {/*If the state of selectedMovie is not null, that selected Movie will be returned,
         otherwise all movies will be returned*/}
         {selectedMovie 
