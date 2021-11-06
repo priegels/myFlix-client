@@ -19,7 +19,7 @@ export function LoginView(props) {
 
     <Container fluid className="registerContainer">
      
-      <Navbar expand="lg">
+      <Navbar className="navbarColor" expand="lg">
         <Container fluid>
           <Navbar.Brand href="#home">K-Flix</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -36,7 +36,6 @@ export function LoginView(props) {
                 className="me-2"
                 aria-label="Search"
               />
-              <Button variant="outline-success">Search</Button>
             </Form>
           </Navbar.Collapse>
         </Container>
