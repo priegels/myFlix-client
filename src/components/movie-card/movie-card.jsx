@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import './movie-card.scss';
-import '../navbar/navbar.scss';
+import '../navbar/navbar.scss'
 
 export class MovieCard extends React.Component {
 
@@ -12,7 +12,7 @@ export class MovieCard extends React.Component {
     const { movie, onMovieClick } = this.props;
 
       return (
-        <Card backgroundColor={'Dark'} style={{ width: '18rem' }}>
+        <Card backgroundColor={'Dark'} style={{ width: '16rem' }}>
           <Card.Img className="MovieCard-Image" variant="top" src={movie.ImagePath} />
           <Card.Body>
             <Card.Title>{movie.Title}</Card.Title>
