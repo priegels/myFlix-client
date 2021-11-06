@@ -9,6 +9,8 @@ import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 
+import '../navbar/navbar.scss'
+
 export class MainView extends React.Component {
 
   //constructor initializing a state's values before render()
@@ -80,7 +82,7 @@ logged in, the user details are passed as a prop to the LoginView */
     return (
       <div className="main-view">
         
-      <Navbar expand="lg">
+      <Navbar className="navbarColor" expand="lg">
         <Container fluid>
           <Navbar.Brand href="#home">K-Flix</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -97,7 +99,6 @@ logged in, the user details are passed as a prop to the LoginView */
                 className="me-2"
                 aria-label="Search"
               />
-              <Button variant="outline-success">Search</Button>
             </Form>
           </Navbar.Collapse>
         </Container>
