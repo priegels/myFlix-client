@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import {Form, Button, Container, Navbar, Nav, FormControl, Card} from 'react-bootstrap';
+import './registration-view.scss';
+import '../navbar/navbar.scss';
 
 export function RegistrationView(props) {
   const [ username, setUsername ] = useState('');
@@ -19,7 +21,7 @@ export function RegistrationView(props) {
 
     <Container fluid className="registerContainer">
      
-      <Navbar expand="lg">
+      <Navbar className="navbarColor" expand="lg">
         <Container fluid>
           <Navbar.Brand href="#home">K-Flix</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -42,7 +44,7 @@ export function RegistrationView(props) {
         </Container>
       </Navbar>
       
-      <Card style={{ width: '18rem' }}>
+      <Card className="registerCard" style={{ width: '18rem' }}>
         <Card.Body>
           <Card.Title className="text-center">안녕하세요! <br /> Welcome to K-Flix.</Card.Title>
           <Card.Subtitle className="mb-2 text-muted text-center">Please register</Card.Subtitle>
