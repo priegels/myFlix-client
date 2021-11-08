@@ -82,7 +82,7 @@ logged in, the user details are passed as a prop to the LoginView */
     return (
       <div className="main-view">
         
-      <Navbar className="navbarColor" expand="lg">
+      <Navbar className="navbar navbarColor" expand="lg">
         <Container fluid>
           <Navbar.Brand href="#home">K-Flix</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
