@@ -1,0 +1,32 @@
+.movie-view {
+  margin-top: 50px;
+}
+
+.movie-poster {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.movie-view-button-div {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+img {
+  height: 500px;
+  margin: auto;
+}
+
+.title, .release-date, .description, .genre, .director {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.movie-view-button {
+  background-color: #033159;
+  border-color: #000;
+}
+
+.movie-view-button:hover {
+  background-color: #000;
+}
