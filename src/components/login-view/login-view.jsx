@@ -41,7 +41,7 @@ export function LoginView(props) {
         </Container>
       </Navbar>
       
-      <Card className="loginCard" style={{ width: '18rem' }}>
+      <Card className="loginCard" style={{ width: '18rem', color: '#fff' }}>
         <Card.Body>
           <Card.Title className="text-center">안녕하세요! <br /> Welcome to K-Flix.</Card.Title>
           <Card.Subtitle className="mb-2 text-muted text-center">Please login</Card.Subtitle>
@@ -63,7 +63,7 @@ export function LoginView(props) {
               />
           </Form.Group>
             <br />
-          <Button variant="primary" type="submit" onClick={handleSubmit}>
+          <Button className="login-button" variant="primary" type="submit" onClick={handleSubmit}>
             Submit
           </Button>
         </Form>

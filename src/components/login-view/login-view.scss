@@ -3,5 +3,19 @@
   justify-content: center;
   align-items: center;
   margin: 40px auto;
-  background-color: blue !important;
+  background-color: #033159 !important;
+}
+
+.login-button {
+  background-color: red;
+  border-color: #000;
+}
+
+.login-button:hover {
+  background-color: #000;
+  border-color: #000;
+}
+
+.login-button:focus {
+  background-color: #fff;
 }
