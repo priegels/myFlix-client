@@ -19,9 +19,9 @@ export function RegistrationView(props) {
 
   return (
 
-    <Container fluid className="registerContainer">
+    <Container fluid className="register-container">
      
-      <Navbar className="navbarColor" expand="lg">
+      <Navbar className="navbar" expand="lg">
         <Container fluid>
           <Navbar.Brand href="#home">K-Flix</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -43,7 +43,7 @@ export function RegistrationView(props) {
         </Container>
       </Navbar>
       
-      <Card className="registerCard" style={{ width: '18rem' }}>
+      <Card className="register-card" style={{ width: '18rem', color: "#fff" }}>
         <Card.Body>
           <Card.Title className="text-center">안녕하세요! <br /> Welcome to K-Flix.</Card.Title>
           <Card.Subtitle className="mb-2 text-muted text-center">Please register</Card.Subtitle>
@@ -93,7 +93,7 @@ export function RegistrationView(props) {
               />
           </Form.Group>
             <br />
-          <Button variant="primary" type="submit" onClick={handleSubmit}>
+          <Button className="register-button" type="submit" onClick={handleSubmit}>
             Submit
           </Button>
         </Form>

@@ -1,11 +1,21 @@
-.registerCard {
+.register-card {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 40px auto;
-  background-color: blue !important;
+  background-color: #033159 !important;
 }
 
-.registerContainer {
+.register-container {
   padding: 0 !important;
+}
+
+.register-button {
+  background-color: red;
+  border-color: #000;
+}
+
+.register-button:hover {
+  background-color: #000;
+  border-color: #000;
 }
