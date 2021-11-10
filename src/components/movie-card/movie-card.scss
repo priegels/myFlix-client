@@ -1,0 +1,23 @@
+.movie-card-container {
+  display: inline-block;
+}
+
+.movie-card {
+  width: 100%;
+  height: 700px;
+}
+
+.movie-card-image {
+ max-width: 100%;
+ height: auto;
+ max-height: 350px;
+ object-fit: cover;
+}
+
+.col {
+  padding: 0px !important;
+}
+
+.movie-card-button {
+  color: #033159;
+}
