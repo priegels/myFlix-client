@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {Navbar, Nav, Form, FormControl, Button, Container, Card} from 'react-bootstrap';
 import './login-view.scss';
 import '../navbar/navbar.scss';
+import LogoImage from '../../img/logo.png';
 
 export function LoginView(props) {
   const [ username, setUsername ] = useState('');
@@ -19,9 +20,12 @@ export function LoginView(props) {
 
     <Container fluid className="registerContainer">
      
-      <Navbar className="navbarColor" expand="lg">
+     <Navbar className="navbarColor" expand="lg">
         <Container fluid>
-          <Navbar.Brand href="#home">K-Flix</Navbar.Brand>
+          <Navbar.Brand className="navbar-logo" href="#home">
+            <img src={LogoImage}
+            className="navbar-logo d-inline-block align-top"/>
+           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
@@ -64,7 +68,10 @@ export function LoginView(props) {
           </Form.Group>
             <br />
           <Button className="login-button" variant="primary" type="submit" onClick={handleSubmit}>
-            Submit
+            Login
+          </Button>
+          <Button className="register-button" variant="primary" type="submit" onClick={handleSubmit}>
+            Register
           </Button>
         </Form>
       </Card.Body>
