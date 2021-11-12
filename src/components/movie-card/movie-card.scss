@@ -5,6 +5,7 @@
 .movie-card {
   width: 100%;
   height: 700px;
+  overflow: hidden;
 }
 
 .movie-card-image {
@@ -20,4 +21,10 @@
 
 .movie-card-button {
   color: #033159;
+  position: absolute;
+  bottom: 0px;
+  display: inline-block;
+  background-color: white;
+  width: 85%;
+  box-sizing: border-box;
 }
