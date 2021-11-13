@@ -22927,15 +22927,15 @@ class MainView extends _reactDefault.default.Component {
             user: null
         };
     }
-    // adding ajax code to componentDidMount()  
+    // persisting login data
     componentDidMount() {
-        _axiosDefault.default.get('http://k-flix.herokuapp.com/movies').then((response)=>{
+        let accessToken = localStorage.getItem('token');
+        if (accessToken !== null) {
             this.setState({
-                movies: response.data
+                user: localStorage.getItem('user')
             });
-        }).catch((error)=>{
-            console.log(error);
-        });
+            this.getMovies(accessToken);
+        }
     }
     /* When a movie is clicked, this function is invoked and updates the state of the
 'selectedMovie' property to that movie*/ //custom component method 
@@ -22965,7 +22965,7 @@ to that particular user, storing login data in LocalStorage */ onLoggedIn(authDa
             headers: {
                 Authorization: `Bearer ${token}`
             }
-        }).then((reponse)=>{
+        }).then((response)=>{
             // Assign the result to the state
             this.setState({
                 movies: response.data
@@ -22983,7 +22983,7 @@ logged in, the user details are passed as a prop to the LoginView */ if (!user) 
             ,
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 97
+                lineNumber: 95
             },
             __self: this
         }));
@@ -22992,7 +22992,7 @@ logged in, the user details are passed as a prop to the LoginView */ if (!user) 
             ,
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 99
+                lineNumber: 97
             },
             __self: this
         }));
@@ -23001,7 +23001,7 @@ logged in, the user details are passed as a prop to the LoginView */ if (!user) 
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 102
+                lineNumber: 100
             },
             __self: this
         }));
@@ -23009,7 +23009,7 @@ logged in, the user details are passed as a prop to the LoginView */ if (!user) 
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 105
+                lineNumber: 103
             },
             __self: this,
             children: [
@@ -23018,14 +23018,14 @@ logged in, the user details are passed as a prop to the LoginView */ if (!user) 
                     expand: "lg",
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 107
+                        lineNumber: 105
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Container, {
                         fluid: true,
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 108
+                            lineNumber: 106
                         },
                         __self: this,
                         children: [
@@ -23034,7 +23034,7 @@ logged in, the user details are passed as a prop to the LoginView */ if (!user) 
                                 href: "#home",
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 109
+                                    lineNumber: 107
                                 },
                                 __self: this,
                                 children: /*#__PURE__*/ _jsxRuntime.jsx("img", {
@@ -23042,7 +23042,7 @@ logged in, the user details are passed as a prop to the LoginView */ if (!user) 
                                     className: "navbar-logo d-inline-block align-top",
                                     __source: {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 110
+                                        lineNumber: 108
                                     },
                                     __self: this
                                 })
@@ -23051,7 +23051,7 @@ logged in, the user details are passed as a prop to the LoginView */ if (!user) 
                                 "aria-controls": "basic-navbar-nav",
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 113
+                                    lineNumber: 111
                                 },
                                 __self: this
                             }),
@@ -23059,7 +23059,7 @@ logged in, the user details are passed as a prop to the LoginView */ if (!user) 
                                 id: "basic-navbar-nav",
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 114
+                                    lineNumber: 112
                                 },
                                 __self: this,
                                 children: [
@@ -23067,7 +23067,7 @@ logged in, the user details are passed as a prop to the LoginView */ if (!user) 
                                         className: "me-auto",
                                         __source: {
                                             fileName: "src/components/main-view/main-view.jsx",
-                                            lineNumber: 115
+                                            lineNumber: 113
                                         },
                                         __self: this,
                                         children: [
@@ -23075,7 +23075,7 @@ logged in, the user details are passed as a prop to the LoginView */ if (!user) 
                                                 href: "#home",
                                                 __source: {
                                                     fileName: "src/components/main-view/main-view.jsx",
-                                                    lineNumber: 116
+                                                    lineNumber: 114
                                                 },
                                                 __self: this,
                                                 children: "Home"
@@ -23084,7 +23084,7 @@ logged in, the user details are passed as a prop to the LoginView */ if (!user) 
                                                 href: "#profile",
                                                 __source: {
                                                     fileName: "src/components/main-view/main-view.jsx",
-                                                    lineNumber: 117
+                                                    lineNumber: 115
                                                 },
                                                 __self: this,
                                                 children: "Profile"
@@ -23093,7 +23093,7 @@ logged in, the user details are passed as a prop to the LoginView */ if (!user) 
                                                 href: "#logout",
                                                 __source: {
                                                     fileName: "src/components/main-view/main-view.jsx",
-                                                    lineNumber: 118
+                                                    lineNumber: 116
                                                 },
                                                 __self: this,
                                                 children: "Logout"
@@ -23104,7 +23104,7 @@ logged in, the user details are passed as a prop to the LoginView */ if (!user) 
                                         className: "d-flex",
                                         __source: {
                                             fileName: "src/components/main-view/main-view.jsx",
-                                            lineNumber: 120
+                                            lineNumber: 118
                                         },
                                         __self: this,
                                         children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.FormControl, {
@@ -23114,7 +23114,7 @@ logged in, the user details are passed as a prop to the LoginView */ if (!user) 
                                             "aria-label": "Search",
                                             __source: {
                                                 fileName: "src/components/main-view/main-view.jsx",
-                                                lineNumber: 121
+                                                lineNumber: 119
                                             },
                                             __self: this
                                         })
@@ -23128,14 +23128,14 @@ logged in, the user details are passed as a prop to the LoginView */ if (!user) 
                     className: "justify-content-md-center",
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 136
+                        lineNumber: 134
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
                         md: 8,
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 137
+                            lineNumber: 135
                         },
                         __self: this,
                         children: /*#__PURE__*/ _jsxRuntime.jsx(_movieView.MovieView, {
@@ -23145,7 +23145,7 @@ logged in, the user details are passed as a prop to the LoginView */ if (!user) 
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 138
+                                lineNumber: 136
                             },
                             __self: this
                         })
@@ -23154,14 +23154,14 @@ logged in, the user details are passed as a prop to the LoginView */ if (!user) 
                     className: "justify-content-md-center",
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 143
+                        lineNumber: 141
                     },
                     __self: this,
                     children: movies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
                             md: 3,
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 145
+                                lineNumber: 143
                             },
                             __self: this,
                             children: /*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
@@ -23171,7 +23171,7 @@ logged in, the user details are passed as a prop to the LoginView */ if (!user) 
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 146
+                                    lineNumber: 144
                                 },
                                 __self: this
                             }, movie._id)
