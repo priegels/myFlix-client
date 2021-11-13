@@ -34,7 +34,6 @@ export function RegistrationView(props) {
             <Nav className="me-auto">
               <Nav.Link href="#home">Home</Nav.Link>
               <Nav.Link href="#profile">Profile</Nav.Link>
-              <Nav.Link href="#logout">Logout</Nav.Link>
             </Nav>
             <Form className="d-flex">
               <FormControl
