@@ -84,6 +84,16 @@ getMovies(token) {
   });
 }
 
+//Logging out deletes token and user from localStorage and clears user state
+onLoggedOut() {
+  localStorage.removeItem('token');
+  localStorage.removeItem('user');
+  this.setState({
+    user: null
+  });
+}
+
+
 //condensed version featuring object destruction
   render() {
     
@@ -113,7 +123,9 @@ logged in, the user details are passed as a prop to the LoginView */
             <Nav className="me-auto">
               <Nav.Link href="#home">Home</Nav.Link>
               <Nav.Link href="#profile">Profile</Nav.Link>
-              <Nav.Link href="#logout">Logout</Nav.Link>
+              <Nav.Link href="#logout">
+                <button onClick={() => { this.onLoggedOut() }}>Logout</button>
+              </Nav.Link>
             </Nav>
             <Form className="d-flex">
               <FormControl
