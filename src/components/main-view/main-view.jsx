@@ -57,13 +57,34 @@ export class MainView extends React.Component {
   }
 
 /* When a user successfully logs in, this function updates the 'user' property in state
-to that particular user */
+to that particular user, storing login data in LocalStorage */
 
-  onLoggedIn(user) {
+  onLoggedIn(authData) {
+    console.log(authData);
     this.setState({
-      user
+      user: authData.user.Username
     });
+
+    localStorage.setItem('token', authData.token);
+    localStorage.setItem('user', authData.user.Username);
+    this.getMovies(authData.token);
   }
+
+/* getMovies, GET request with Axios to 'movies' endpoint of API */
+getMovies(token) {
+  axios.get('http://k-flix.herokuapp.com/movies', {
+    headers: { Authorization: `Bearer ${token}`}
+  })
+  .then(reponse => {
+    // Assign the result to the state
+    this.setState({
+      movies: response.data
+    });
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+}
 
 //condensed version featuring object destruction
   render() {
