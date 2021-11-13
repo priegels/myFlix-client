@@ -8,12 +8,7 @@
   overflow: hidden;
 }
 
-.movie-card-image {
- max-width: 100%;
- height: auto;
- max-height: 350px;
- object-fit: cover;
-}
+
 
 .col {
   padding: 0px !important;
@@ -27,4 +22,11 @@
   background-color: white;
   width: 85%;
   box-sizing: border-box;
+}
+
+@media all and (max-width: 1200px) {
+  .movie-card-image {
+    height: 350px;
+    object-fit: contain;
+}
 }

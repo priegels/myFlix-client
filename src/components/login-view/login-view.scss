@@ -16,9 +16,15 @@
   border-color: #000;
 }
 
-.register-button {
+.login-register-button {
   background-color: white;
   color: black;
   font-weight: 500;
-  
+  border-color: #000;
+  margin-left: 60px;
+  }
+
+.login-register-button:hover {
+  background-color: #000;
+  border-color: #000;
 }

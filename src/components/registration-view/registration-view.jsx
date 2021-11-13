@@ -3,6 +3,8 @@ import {Form, Button, Container, Navbar, Nav, FormControl, Card} from 'react-boo
 import './registration-view.scss';
 import '../navbar/navbar.scss';
 
+import LogoImage from '../../img/logo.png';
+
 export function RegistrationView(props) {
   const [ username, setUsername ] = useState('');
   const [ password, setPassword ] = useState('');
@@ -23,7 +25,10 @@ export function RegistrationView(props) {
      
       <Navbar className="navbar" expand="lg">
         <Container fluid>
-          <Navbar.Brand href="#home">K-Flix</Navbar.Brand>
+          <Navbar.Brand className="navbar-logo" href="#home">
+            <img src={LogoImage}
+            className="navbar-logo d-inline-block align-top"/>
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
@@ -94,7 +99,7 @@ export function RegistrationView(props) {
           </Form.Group>
             <br />
           <Button className="register-button" type="submit" onClick={handleSubmit}>
-            Submit
+            Register
           </Button>
         </Form>
       </Card.Body>

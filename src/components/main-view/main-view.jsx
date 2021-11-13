@@ -10,6 +10,7 @@ import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 
 import '../navbar/navbar.scss'
+import LogoImage from '../../img/logo.png'
 
 export class MainView extends React.Component {
 
@@ -84,7 +85,10 @@ logged in, the user details are passed as a prop to the LoginView */
         
       <Navbar className="navbar navbarColor" expand="lg">
         <Container fluid>
-          <Navbar.Brand href="#home">K-Flix</Navbar.Brand>
+        <Navbar.Brand className="navbar-logo" href="#home">
+            <img src={LogoImage}
+            className="navbar-logo d-inline-block align-top"/>
+           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">

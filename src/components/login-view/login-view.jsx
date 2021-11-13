@@ -18,9 +18,9 @@ export function LoginView(props) {
 
   return (
 
-    <Container fluid className="registerContainer">
+    <Container fluid className="register-container">
      
-     <Navbar className="navbarColor" expand="lg">
+      <Navbar className="navbar" expand="lg">
         <Container fluid>
           <Navbar.Brand className="navbar-logo" href="#home">
             <img src={LogoImage}
@@ -70,7 +70,7 @@ export function LoginView(props) {
           <Button className="login-button" variant="primary" type="submit" onClick={handleSubmit}>
             Login
           </Button>
-          <Button className="register-button" variant="primary" type="submit" onClick={handleSubmit}>
+          <Button className="login-register-button" variant="primary" type="submit" onClick={handleSubmit}>
             Register
           </Button>
         </Form>
