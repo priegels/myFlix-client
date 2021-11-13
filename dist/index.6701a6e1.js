@@ -22951,9 +22951,27 @@ class MainView extends _reactDefault.default.Component {
         });
     }
     /* When a user successfully logs in, this function updates the 'user' property in state
-to that particular user */ onLoggedIn(user) {
+to that particular user, storing login data in LocalStorage */ onLoggedIn(authData) {
+        console.log(authData);
         this.setState({
-            user
+            user: authData.user.Username
+        });
+        localStorage.setItem('token', authData.token);
+        localStorage.setItem('user', authData.user.Username);
+        this.getMovies(authData.token);
+    }
+    /* getMovies, GET request with Axios to 'movies' endpoint of API */ getMovies(token) {
+        _axiosDefault.default.get('http://k-flix.herokuapp.com/movies', {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then((reponse)=>{
+            // Assign the result to the state
+            this.setState({
+                movies: response.data
+            });
+        }).catch(function(error) {
+            console.log(error);
         });
     }
     //condensed version featuring object destruction
@@ -22965,7 +22983,7 @@ logged in, the user details are passed as a prop to the LoginView */ if (!user) 
             ,
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 76
+                lineNumber: 97
             },
             __self: this
         }));
@@ -22974,7 +22992,7 @@ logged in, the user details are passed as a prop to the LoginView */ if (!user) 
             ,
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 78
+                lineNumber: 99
             },
             __self: this
         }));
@@ -22983,7 +23001,7 @@ logged in, the user details are passed as a prop to the LoginView */ if (!user) 
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 81
+                lineNumber: 102
             },
             __self: this
         }));
@@ -22991,7 +23009,7 @@ logged in, the user details are passed as a prop to the LoginView */ if (!user) 
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 84
+                lineNumber: 105
             },
             __self: this,
             children: [
@@ -23000,14 +23018,14 @@ logged in, the user details are passed as a prop to the LoginView */ if (!user) 
                     expand: "lg",
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 86
+                        lineNumber: 107
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Container, {
                         fluid: true,
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 87
+                            lineNumber: 108
                         },
                         __self: this,
                         children: [
@@ -23016,7 +23034,7 @@ logged in, the user details are passed as a prop to the LoginView */ if (!user) 
                                 href: "#home",
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 88
+                                    lineNumber: 109
                                 },
                                 __self: this,
                                 children: /*#__PURE__*/ _jsxRuntime.jsx("img", {
@@ -23024,7 +23042,7 @@ logged in, the user details are passed as a prop to the LoginView */ if (!user) 
                                     className: "navbar-logo d-inline-block align-top",
                                     __source: {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 89
+                                        lineNumber: 110
                                     },
                                     __self: this
                                 })
@@ -23033,7 +23051,7 @@ logged in, the user details are passed as a prop to the LoginView */ if (!user) 
                                 "aria-controls": "basic-navbar-nav",
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 92
+                                    lineNumber: 113
                                 },
                                 __self: this
                             }),
@@ -23041,7 +23059,7 @@ logged in, the user details are passed as a prop to the LoginView */ if (!user) 
                                 id: "basic-navbar-nav",
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 93
+                                    lineNumber: 114
                                 },
                                 __self: this,
                                 children: [
@@ -23049,7 +23067,7 @@ logged in, the user details are passed as a prop to the LoginView */ if (!user) 
                                         className: "me-auto",
                                         __source: {
                                             fileName: "src/components/main-view/main-view.jsx",
-                                            lineNumber: 94
+                                            lineNumber: 115
                                         },
                                         __self: this,
                                         children: [
@@ -23057,7 +23075,7 @@ logged in, the user details are passed as a prop to the LoginView */ if (!user) 
                                                 href: "#home",
                                                 __source: {
                                                     fileName: "src/components/main-view/main-view.jsx",
-                                                    lineNumber: 95
+                                                    lineNumber: 116
                                                 },
                                                 __self: this,
                                                 children: "Home"
@@ -23066,7 +23084,7 @@ logged in, the user details are passed as a prop to the LoginView */ if (!user) 
                                                 href: "#profile",
                                                 __source: {
                                                     fileName: "src/components/main-view/main-view.jsx",
-                                                    lineNumber: 96
+                                                    lineNumber: 117
                                                 },
                                                 __self: this,
                                                 children: "Profile"
@@ -23075,7 +23093,7 @@ logged in, the user details are passed as a prop to the LoginView */ if (!user) 
                                                 href: "#logout",
                                                 __source: {
                                                     fileName: "src/components/main-view/main-view.jsx",
-                                                    lineNumber: 97
+                                                    lineNumber: 118
                                                 },
                                                 __self: this,
                                                 children: "Logout"
@@ -23086,7 +23104,7 @@ logged in, the user details are passed as a prop to the LoginView */ if (!user) 
                                         className: "d-flex",
                                         __source: {
                                             fileName: "src/components/main-view/main-view.jsx",
-                                            lineNumber: 99
+                                            lineNumber: 120
                                         },
                                         __self: this,
                                         children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.FormControl, {
@@ -23096,7 +23114,7 @@ logged in, the user details are passed as a prop to the LoginView */ if (!user) 
                                             "aria-label": "Search",
                                             __source: {
                                                 fileName: "src/components/main-view/main-view.jsx",
-                                                lineNumber: 100
+                                                lineNumber: 121
                                             },
                                             __self: this
                                         })
@@ -23110,14 +23128,14 @@ logged in, the user details are passed as a prop to the LoginView */ if (!user) 
                     className: "justify-content-md-center",
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 115
+                        lineNumber: 136
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
                         md: 8,
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 116
+                            lineNumber: 137
                         },
                         __self: this,
                         children: /*#__PURE__*/ _jsxRuntime.jsx(_movieView.MovieView, {
@@ -23127,7 +23145,7 @@ logged in, the user details are passed as a prop to the LoginView */ if (!user) 
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 117
+                                lineNumber: 138
                             },
                             __self: this
                         })
@@ -23136,14 +23154,14 @@ logged in, the user details are passed as a prop to the LoginView */ if (!user) 
                     className: "justify-content-md-center",
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 122
+                        lineNumber: 143
                     },
                     __self: this,
                     children: movies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
                             md: 3,
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 124
+                                lineNumber: 145
                             },
                             __self: this,
                             children: /*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
@@ -23153,7 +23171,7 @@ logged in, the user details are passed as a prop to the LoginView */ if (!user) 
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 125
+                                    lineNumber: 146
                                 },
                                 __self: this
                             }, movie._id)
@@ -23170,7 +23188,7 @@ logged in, the user details are passed as a prop to the LoginView */ if (!user) 
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","axios":"iYoWk","react-bootstrap":"h2YVd","../registration-view/registration-view":"aP2YV","../login-view/login-view":"054li","../movie-card/movie-card":"6EiBJ","../movie-view/movie-view":"ikZdr","../navbar/navbar.scss":"eqSoH","@parcel/transformer-js/src/esmodule-helpers.js":"77v8L","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4RpjY","../../img/logo.png":"hANpy"}],"iYoWk":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","axios":"iYoWk","react-bootstrap":"h2YVd","../registration-view/registration-view":"aP2YV","../login-view/login-view":"054li","../movie-card/movie-card":"6EiBJ","../movie-view/movie-view":"ikZdr","../navbar/navbar.scss":"eqSoH","../../img/logo.png":"hANpy","@parcel/transformer-js/src/esmodule-helpers.js":"77v8L","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4RpjY"}],"iYoWk":[function(require,module,exports) {
 module.exports = require('./lib/axios');
 
 },{"./lib/axios":"3QmO2"}],"3QmO2":[function(require,module,exports) {
@@ -37434,7 +37452,45 @@ $RefreshReg$(_c, "RegistrationView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-bootstrap":"h2YVd","./registration-view.scss":"fr9ZP","../navbar/navbar.scss":"eqSoH","@parcel/transformer-js/src/esmodule-helpers.js":"77v8L","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4RpjY","../../img/logo.png":"hANpy"}],"fr9ZP":[function() {},{}],"eqSoH":[function() {},{}],"4RpjY":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-bootstrap":"h2YVd","./registration-view.scss":"fr9ZP","../navbar/navbar.scss":"eqSoH","../../img/logo.png":"hANpy","@parcel/transformer-js/src/esmodule-helpers.js":"77v8L","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4RpjY"}],"fr9ZP":[function() {},{}],"eqSoH":[function() {},{}],"hANpy":[function(require,module,exports) {
+module.exports = require('./helpers/bundle-url').getBundleURL('3VpAv') + "logo.739a33b1.png";
+
+},{"./helpers/bundle-url":"2mcrh"}],"2mcrh":[function(require,module,exports) {
+"use strict";
+var bundleURL = {
+};
+function getBundleURLCached(id) {
+    var value = bundleURL[id];
+    if (!value) {
+        value = getBundleURL();
+        bundleURL[id] = value;
+    }
+    return value;
+}
+function getBundleURL() {
+    try {
+        throw new Error();
+    } catch (err) {
+        var matches = ('' + err.stack).match(/(https?|file|ftp):\/\/[^)\n]+/g);
+        if (matches) // The first two stack frames will be this function and getBundleURLCached.
+        // Use the 3rd one, which will be a runtime in the original bundle.
+        return getBaseURL(matches[2]);
+    }
+    return '/';
+}
+function getBaseURL(url) {
+    return ('' + url).replace(/^((?:https?|file|ftp):\/\/.+)\/[^/]+$/, '$1') + '/';
+} // TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
+function getOrigin(url) {
+    var matches = ('' + url).match(/(https?|file|ftp):\/\/[^/]+/);
+    if (!matches) throw new Error('Origin not found');
+    return matches[0];
+}
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+exports.getOrigin = getOrigin;
+
+},{}],"4RpjY":[function(require,module,exports) {
 "use strict";
 var Refresh = require('react-refresh/runtime');
 function debounce(func, delay) {
@@ -37554,45 +37610,7 @@ function registerExportsForReactRefresh(module) {
     }
 }
 
-},{"react-refresh/runtime":"9gPST"}],"hANpy":[function(require,module,exports) {
-module.exports = require('./helpers/bundle-url').getBundleURL('3VpAv') + "logo.739a33b1.png";
-
-},{"./helpers/bundle-url":"2mcrh"}],"2mcrh":[function(require,module,exports) {
-"use strict";
-var bundleURL = {
-};
-function getBundleURLCached(id) {
-    var value = bundleURL[id];
-    if (!value) {
-        value = getBundleURL();
-        bundleURL[id] = value;
-    }
-    return value;
-}
-function getBundleURL() {
-    try {
-        throw new Error();
-    } catch (err) {
-        var matches = ('' + err.stack).match(/(https?|file|ftp):\/\/[^)\n]+/g);
-        if (matches) // The first two stack frames will be this function and getBundleURLCached.
-        // Use the 3rd one, which will be a runtime in the original bundle.
-        return getBaseURL(matches[2]);
-    }
-    return '/';
-}
-function getBaseURL(url) {
-    return ('' + url).replace(/^((?:https?|file|ftp):\/\/.+)\/[^/]+$/, '$1') + '/';
-} // TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
-function getOrigin(url) {
-    var matches = ('' + url).match(/(https?|file|ftp):\/\/[^/]+/);
-    if (!matches) throw new Error('Origin not found');
-    return matches[0];
-}
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-exports.getOrigin = getOrigin;
-
-},{}],"054li":[function(require,module,exports) {
+},{"react-refresh/runtime":"9gPST"}],"054li":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$02dd = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -37606,6 +37624,8 @@ parcelHelpers.export(exports, "LoginView", ()=>LoginView
 var _jsxRuntime = require("react/jsx-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _reactBootstrap = require("react-bootstrap");
 var _loginViewScss = require("./login-view.scss");
 var _navbarScss = require("../navbar/navbar.scss");
@@ -37616,17 +37636,26 @@ function LoginView(props) {
     _s();
     const [username, setUsername] = _react.useState('');
     const [password, setPassword] = _react.useState('');
+    //handling authentication 
     const handleSubmit = (e)=>{
         e.preventDefault();
-        console.log(username, password);
-        /* Send a request to the server for authentication */ /* then call props.onLoggedIn(username) */ props.onLoggedIn(username);
+        /* Send a request to the server for authentication, POST request */ _axiosDefault.default.post('http://k-flix.herokuapp.com/login', {
+            Username: username,
+            Password: password
+        }).then((response)=>{
+            //(data) instead of (username) for token
+            const data = response.data;
+            props.onLoggedIn(data);
+        }).catch((e1)=>{
+            console.log('no such user');
+        });
     };
     return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Container, {
         fluid: true,
         className: "register-container",
         __source: {
             fileName: "src/components/login-view/login-view.jsx",
-            lineNumber: 21
+            lineNumber: 34
         },
         __self: this,
         children: [
@@ -37635,14 +37664,14 @@ function LoginView(props) {
                 expand: "lg",
                 __source: {
                     fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 23
+                    lineNumber: 36
                 },
                 __self: this,
                 children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Container, {
                     fluid: true,
                     __source: {
                         fileName: "src/components/login-view/login-view.jsx",
-                        lineNumber: 24
+                        lineNumber: 37
                     },
                     __self: this,
                     children: [
@@ -37651,7 +37680,7 @@ function LoginView(props) {
                             href: "#home",
                             __source: {
                                 fileName: "src/components/login-view/login-view.jsx",
-                                lineNumber: 25
+                                lineNumber: 38
                             },
                             __self: this,
                             children: /*#__PURE__*/ _jsxRuntime.jsx("img", {
@@ -37659,7 +37688,7 @@ function LoginView(props) {
                                 className: "navbar-logo d-inline-block align-top",
                                 __source: {
                                     fileName: "src/components/login-view/login-view.jsx",
-                                    lineNumber: 26
+                                    lineNumber: 39
                                 },
                                 __self: this
                             })
@@ -37668,7 +37697,7 @@ function LoginView(props) {
                             "aria-controls": "basic-navbar-nav",
                             __source: {
                                 fileName: "src/components/login-view/login-view.jsx",
-                                lineNumber: 29
+                                lineNumber: 42
                             },
                             __self: this
                         }),
@@ -37676,7 +37705,7 @@ function LoginView(props) {
                             id: "basic-navbar-nav",
                             __source: {
                                 fileName: "src/components/login-view/login-view.jsx",
-                                lineNumber: 30
+                                lineNumber: 43
                             },
                             __self: this,
                             children: [
@@ -37684,7 +37713,7 @@ function LoginView(props) {
                                     className: "me-auto",
                                     __source: {
                                         fileName: "src/components/login-view/login-view.jsx",
-                                        lineNumber: 31
+                                        lineNumber: 44
                                     },
                                     __self: this,
                                     children: [
@@ -37692,7 +37721,7 @@ function LoginView(props) {
                                             href: "#home",
                                             __source: {
                                                 fileName: "src/components/login-view/login-view.jsx",
-                                                lineNumber: 32
+                                                lineNumber: 45
                                             },
                                             __self: this,
                                             children: "Home"
@@ -37701,7 +37730,7 @@ function LoginView(props) {
                                             href: "#profile",
                                             __source: {
                                                 fileName: "src/components/login-view/login-view.jsx",
-                                                lineNumber: 33
+                                                lineNumber: 46
                                             },
                                             __self: this,
                                             children: "Profile"
@@ -37710,7 +37739,7 @@ function LoginView(props) {
                                             href: "#logout",
                                             __source: {
                                                 fileName: "src/components/login-view/login-view.jsx",
-                                                lineNumber: 34
+                                                lineNumber: 47
                                             },
                                             __self: this,
                                             children: "Logout"
@@ -37721,7 +37750,7 @@ function LoginView(props) {
                                     className: "d-flex",
                                     __source: {
                                         fileName: "src/components/login-view/login-view.jsx",
-                                        lineNumber: 36
+                                        lineNumber: 49
                                     },
                                     __self: this,
                                     children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.FormControl, {
@@ -37731,7 +37760,7 @@ function LoginView(props) {
                                         "aria-label": "Search",
                                         __source: {
                                             fileName: "src/components/login-view/login-view.jsx",
-                                            lineNumber: 37
+                                            lineNumber: 50
                                         },
                                         __self: this
                                     })
@@ -37749,13 +37778,13 @@ function LoginView(props) {
                 },
                 __source: {
                     fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 48
+                    lineNumber: 61
                 },
                 __self: this,
                 children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card.Body, {
                     __source: {
                         fileName: "src/components/login-view/login-view.jsx",
-                        lineNumber: 49
+                        lineNumber: 62
                     },
                     __self: this,
                     children: [
@@ -37763,7 +37792,7 @@ function LoginView(props) {
                             className: "text-center",
                             __source: {
                                 fileName: "src/components/login-view/login-view.jsx",
-                                lineNumber: 50
+                                lineNumber: 63
                             },
                             __self: this,
                             children: [
@@ -37771,7 +37800,7 @@ function LoginView(props) {
                                 /*#__PURE__*/ _jsxRuntime.jsx("br", {
                                     __source: {
                                         fileName: "src/components/login-view/login-view.jsx",
-                                        lineNumber: 50
+                                        lineNumber: 63
                                     },
                                     __self: this
                                 }),
@@ -37782,7 +37811,7 @@ function LoginView(props) {
                             className: "mb-2 text-muted text-center",
                             __source: {
                                 fileName: "src/components/login-view/login-view.jsx",
-                                lineNumber: 51
+                                lineNumber: 64
                             },
                             __self: this,
                             children: "Please login"
@@ -37790,21 +37819,21 @@ function LoginView(props) {
                         /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form, {
                             __source: {
                                 fileName: "src/components/login-view/login-view.jsx",
-                                lineNumber: 53
+                                lineNumber: 66
                             },
                             __self: this,
                             children: [
                                 /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form.Group, {
                                     __source: {
                                         fileName: "src/components/login-view/login-view.jsx",
-                                        lineNumber: 54
+                                        lineNumber: 67
                                     },
                                     __self: this,
                                     children: [
                                         /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
                                             __source: {
                                                 fileName: "src/components/login-view/login-view.jsx",
-                                                lineNumber: 55
+                                                lineNumber: 68
                                             },
                                             __self: this,
                                             children: "Username:"
@@ -37815,7 +37844,7 @@ function LoginView(props) {
                                             ,
                                             __source: {
                                                 fileName: "src/components/login-view/login-view.jsx",
-                                                lineNumber: 56
+                                                lineNumber: 69
                                             },
                                             __self: this
                                         })
@@ -37824,14 +37853,14 @@ function LoginView(props) {
                                 /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form.Group, {
                                     __source: {
                                         fileName: "src/components/login-view/login-view.jsx",
-                                        lineNumber: 62
+                                        lineNumber: 75
                                     },
                                     __self: this,
                                     children: [
                                         /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
                                             __source: {
                                                 fileName: "src/components/login-view/login-view.jsx",
-                                                lineNumber: 63
+                                                lineNumber: 76
                                             },
                                             __self: this,
                                             children: "Password:"
@@ -37842,7 +37871,7 @@ function LoginView(props) {
                                             ,
                                             __source: {
                                                 fileName: "src/components/login-view/login-view.jsx",
-                                                lineNumber: 64
+                                                lineNumber: 77
                                             },
                                             __self: this
                                         })
@@ -37851,7 +37880,7 @@ function LoginView(props) {
                                 /*#__PURE__*/ _jsxRuntime.jsx("br", {
                                     __source: {
                                         fileName: "src/components/login-view/login-view.jsx",
-                                        lineNumber: 69
+                                        lineNumber: 82
                                     },
                                     __self: this
                                 }),
@@ -37862,7 +37891,7 @@ function LoginView(props) {
                                     onClick: handleSubmit,
                                     __source: {
                                         fileName: "src/components/login-view/login-view.jsx",
-                                        lineNumber: 70
+                                        lineNumber: 83
                                     },
                                     __self: this,
                                     children: "Login"
@@ -37874,7 +37903,7 @@ function LoginView(props) {
                                     onClick: handleSubmit,
                                     __source: {
                                         fileName: "src/components/login-view/login-view.jsx",
-                                        lineNumber: 73
+                                        lineNumber: 86
                                     },
                                     __self: this,
                                     children: "Register"
@@ -37897,7 +37926,7 @@ $RefreshReg$(_c, "LoginView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-bootstrap":"h2YVd","./login-view.scss":"lS4BK","../navbar/navbar.scss":"eqSoH","../../img/logo.png":"hANpy","@parcel/transformer-js/src/esmodule-helpers.js":"77v8L","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4RpjY"}],"lS4BK":[function() {},{}],"eqSoH":[function() {},{}],"6EiBJ":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","axios":"iYoWk","react-bootstrap":"h2YVd","./login-view.scss":"lS4BK","../navbar/navbar.scss":"eqSoH","../../img/logo.png":"hANpy","@parcel/transformer-js/src/esmodule-helpers.js":"77v8L","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4RpjY"}],"lS4BK":[function() {},{}],"eqSoH":[function() {},{}],"6EiBJ":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$4249 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
