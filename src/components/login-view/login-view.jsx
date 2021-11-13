@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 
 import {Navbar, Nav, Form, FormControl, Button, Container, Card} from 'react-bootstrap';
@@ -32,31 +33,7 @@ export function LoginView(props) {
   return (
 
     <Container fluid className="register-container">
-     
-      <Navbar className="navbar" expand="lg">
-        <Container fluid>
-          <Navbar.Brand className="navbar-logo" href="#home">
-            <img src={LogoImage}
-            className="navbar-logo d-inline-block align-top"/>
-           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link href="#home">Home</Nav.Link>
-              <Nav.Link href="#profile">Profile</Nav.Link>
-            </Nav>
-            <Form className="d-flex">
-              <FormControl
-                type="search"
-                placeholder="Search"
-                className="me-2"
-                aria-label="Search"
-              />
-            </Form>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-      
+         
       <Card className="loginCard" style={{ width: '18rem', color: '#fff' }}>
         <Card.Body>
           <Card.Title className="text-center">안녕하세요! <br /> Welcome to K-Flix.</Card.Title>
@@ -91,3 +68,11 @@ export function LoginView(props) {
   </Container>
   );
 }
+
+LoginView.propTypes = {
+  user: PropTypes.shape({
+    username: PropTypes.string.isRequired,
+    password: PropTypes.string.isRequired,
+  }),
+  onLoggedIn: PropTypes.func.isRequired,
+};
