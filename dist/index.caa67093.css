@@ -15,12 +15,13 @@ body {
 }
 
 .register-button {
-  background-color: red;
+  background-color: red !important;
   border-color: #000;
+  color: white !important;
 }
 
 .register-button:hover {
-  background-color: #000;
+  background-color: #000 !important;
   border-color: #000;
 }
 .navbar {
@@ -61,10 +62,17 @@ body {
   border-color: #000;
 }
 
-.register-button {
+.login-register-button {
   background-color: white;
   color: black;
   font-weight: 500;
+  border-color: #000;
+  margin-left: 60px;
+}
+
+.login-register-button:hover {
+  background-color: #000;
+  border-color: #000;
 }
 .movie-card-container {
   display: inline-block;
@@ -74,13 +82,6 @@ body {
   width: 100%;
   height: 700px;
   overflow: hidden;
-}
-
-.movie-card-image {
-  max-width: 100%;
-  height: auto;
-  max-height: 350px;
-  object-fit: cover;
 }
 
 .col {
@@ -95,6 +96,13 @@ body {
   background-color: white;
   width: 85%;
   box-sizing: border-box;
+}
+
+@media all and (max-width: 1200px) {
+  .movie-card-image {
+    height: 350px;
+    object-fit: contain;
+  }
 }
 .movie-view {
   margin-top: 50px;
