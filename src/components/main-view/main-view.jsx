@@ -25,17 +25,15 @@ export class MainView extends React.Component {
     };
   }
 
-// adding ajax code to componentDidMount()  
+// persisting login data
   componentDidMount(){
-    axios.get('http://k-flix.herokuapp.com/movies')
-    .then(response => {
+    let accessToken = localStorage.getItem('token');
+    if (accessToken !== null) {
       this.setState({
-        movies: response.data
+        user: localStorage.getItem('user')
       });
-    })
-    .catch(error => {
-      console.log(error);
-    });
+      this.getMovies(accessToken);
+    }
   }
 
 /* When a movie is clicked, this function is invoked and updates the state of the
@@ -75,7 +73,7 @@ getMovies(token) {
   axios.get('http://k-flix.herokuapp.com/movies', {
     headers: { Authorization: `Bearer ${token}`}
   })
-  .then(reponse => {
+  .then(response => {
     // Assign the result to the state
     this.setState({
       movies: response.data
