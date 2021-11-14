@@ -22915,6 +22915,7 @@ var _loginView = require("../login-view/login-view");
 var _movieCard = require("../movie-card/movie-card");
 var _movieView = require("../movie-view/movie-view");
 var _profileView = require("../profile-view/profile-view");
+var _genreView = require("../genre-view/genre-view");
 var _navbarScss = require("../navbar/navbar.scss");
 var _logoPng = require("../../img/logo.png");
 var _logoPngDefault = parcelHelpers.interopDefault(_logoPng);
@@ -22975,7 +22976,7 @@ to that particular user, storing login data in LocalStorage */ onLoggedIn(authDa
         return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactRouterDom.BrowserRouter, {
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 86
+                lineNumber: 87
             },
             __self: this,
             children: [
@@ -22983,7 +22984,7 @@ to that particular user, storing login data in LocalStorage */ onLoggedIn(authDa
                     fluid: true,
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 88
+                        lineNumber: 89
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Navbar, {
@@ -22991,7 +22992,7 @@ to that particular user, storing login data in LocalStorage */ onLoggedIn(authDa
                         expand: "lg",
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 89
+                            lineNumber: 90
                         },
                         __self: this,
                         children: [
@@ -23000,7 +23001,7 @@ to that particular user, storing login data in LocalStorage */ onLoggedIn(authDa
                                 href: "#home",
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 90
+                                    lineNumber: 91
                                 },
                                 __self: this,
                                 children: /*#__PURE__*/ _jsxRuntime.jsx("img", {
@@ -23008,7 +23009,7 @@ to that particular user, storing login data in LocalStorage */ onLoggedIn(authDa
                                     className: "navbar-logo d-inline-block align-top",
                                     __source: {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 91
+                                        lineNumber: 92
                                     },
                                     __self: this
                                 })
@@ -23017,7 +23018,7 @@ to that particular user, storing login data in LocalStorage */ onLoggedIn(authDa
                                 "aria-controls": "basic-navbar-nav",
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 94
+                                    lineNumber: 95
                                 },
                                 __self: this
                             }),
@@ -23025,7 +23026,7 @@ to that particular user, storing login data in LocalStorage */ onLoggedIn(authDa
                                 id: "basic-navbar-nav",
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 95
+                                    lineNumber: 96
                                 },
                                 __self: this,
                                 children: [
@@ -23033,7 +23034,7 @@ to that particular user, storing login data in LocalStorage */ onLoggedIn(authDa
                                         className: "me-auto",
                                         __source: {
                                             fileName: "src/components/main-view/main-view.jsx",
-                                            lineNumber: 96
+                                            lineNumber: 97
                                         },
                                         __self: this,
                                         children: [
@@ -23041,7 +23042,7 @@ to that particular user, storing login data in LocalStorage */ onLoggedIn(authDa
                                                 href: "#home",
                                                 __source: {
                                                     fileName: "src/components/main-view/main-view.jsx",
-                                                    lineNumber: 97
+                                                    lineNumber: 98
                                                 },
                                                 __self: this,
                                                 children: "Home"
@@ -23050,7 +23051,7 @@ to that particular user, storing login data in LocalStorage */ onLoggedIn(authDa
                                                 href: "#profile",
                                                 __source: {
                                                     fileName: "src/components/main-view/main-view.jsx",
-                                                    lineNumber: 98
+                                                    lineNumber: 99
                                                 },
                                                 __self: this,
                                                 children: "Profile"
@@ -23059,7 +23060,7 @@ to that particular user, storing login data in LocalStorage */ onLoggedIn(authDa
                                                 href: "#logout",
                                                 __source: {
                                                     fileName: "src/components/main-view/main-view.jsx",
-                                                    lineNumber: 99
+                                                    lineNumber: 100
                                                 },
                                                 __self: this,
                                                 children: /*#__PURE__*/ _jsxRuntime.jsx("button", {
@@ -23068,7 +23069,7 @@ to that particular user, storing login data in LocalStorage */ onLoggedIn(authDa
                                                     },
                                                     __source: {
                                                         fileName: "src/components/main-view/main-view.jsx",
-                                                        lineNumber: 100
+                                                        lineNumber: 101
                                                     },
                                                     __self: this,
                                                     children: "Logout"
@@ -23080,7 +23081,7 @@ to that particular user, storing login data in LocalStorage */ onLoggedIn(authDa
                                         className: "d-flex",
                                         __source: {
                                             fileName: "src/components/main-view/main-view.jsx",
-                                            lineNumber: 103
+                                            lineNumber: 104
                                         },
                                         __self: this,
                                         children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.FormControl, {
@@ -23090,7 +23091,7 @@ to that particular user, storing login data in LocalStorage */ onLoggedIn(authDa
                                             "aria-label": "Search",
                                             __source: {
                                                 fileName: "src/components/main-view/main-view.jsx",
-                                                lineNumber: 104
+                                                lineNumber: 105
                                             },
                                             __self: this
                                         })
@@ -23103,20 +23104,20 @@ to that particular user, storing login data in LocalStorage */ onLoggedIn(authDa
                 /*#__PURE__*/ _jsxRuntime.jsx("div", {
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 115
+                        lineNumber: 116
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Container, {
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 116
+                            lineNumber: 117
                         },
                         __self: this,
                         children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Row, {
                             className: "justify-content-md-center",
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 117
+                                lineNumber: 118
                             },
                             __self: this,
                             children: [
@@ -23145,7 +23146,7 @@ to that particular user, storing login data in LocalStorage */ onLoggedIn(authDa
                                     },
                                     __source: {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 119
+                                        lineNumber: 120
                                     },
                                     __self: this
                                 }),
@@ -23162,7 +23163,7 @@ to that particular user, storing login data in LocalStorage */ onLoggedIn(authDa
                                     },
                                     __source: {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 134
+                                        lineNumber: 135
                                     },
                                     __self: this
                                 }),
@@ -23183,7 +23184,7 @@ to that particular user, storing login data in LocalStorage */ onLoggedIn(authDa
                                     },
                                     __source: {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 141
+                                        lineNumber: 142
                                     },
                                     __self: this
                                 }),
@@ -23209,7 +23210,7 @@ to that particular user, storing login data in LocalStorage */ onLoggedIn(authDa
                                     },
                                     __source: {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 149
+                                        lineNumber: 150
                                     },
                                     __self: this
                                 }),
@@ -23235,7 +23236,7 @@ to that particular user, storing login data in LocalStorage */ onLoggedIn(authDa
                                     },
                                     __source: {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 160
+                                        lineNumber: 161
                                     },
                                     __self: this
                                 }),
@@ -23252,8 +23253,8 @@ to that particular user, storing login data in LocalStorage */ onLoggedIn(authDa
                                         }));
                                         return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
                                             md: 8,
-                                            children: /*#__PURE__*/ _jsxRuntime.jsx(GenreView, {
-                                                genre: movies.find((m)=>m.Genre.Name === match.params.name
+                                            children: /*#__PURE__*/ _jsxRuntime.jsx(_genreView.GenreView, {
+                                                genre: movies.find((m)=>m.Genre._id === match.params.genreId
                                                 ).Genre,
                                                 onBackClick: ()=>history.goBack()
                                             })
@@ -23261,7 +23262,7 @@ to that particular user, storing login data in LocalStorage */ onLoggedIn(authDa
                                     },
                                     __source: {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 173
+                                        lineNumber: 174
                                     },
                                     __self: this
                                 })
@@ -23279,7 +23280,7 @@ to that particular user, storing login data in LocalStorage */ onLoggedIn(authDa
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","axios":"iYoWk","react-router-dom":"cpyQW","react-bootstrap":"h2YVd","../registration-view/registration-view":"aP2YV","../login-view/login-view":"054li","../movie-card/movie-card":"6EiBJ","../movie-view/movie-view":"ikZdr","../profile-view/profile-view":"2E7Aw","../navbar/navbar.scss":"eqSoH","../../img/logo.png":"hANpy","@parcel/transformer-js/src/esmodule-helpers.js":"77v8L","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4RpjY"}],"iYoWk":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","axios":"iYoWk","react-router-dom":"cpyQW","react-bootstrap":"h2YVd","../registration-view/registration-view":"aP2YV","../login-view/login-view":"054li","../movie-card/movie-card":"6EiBJ","../movie-view/movie-view":"ikZdr","../profile-view/profile-view":"2E7Aw","../navbar/navbar.scss":"eqSoH","../../img/logo.png":"hANpy","@parcel/transformer-js/src/esmodule-helpers.js":"77v8L","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4RpjY","../genre-view/genre-view":"8WCoL"}],"iYoWk":[function(require,module,exports) {
 module.exports = require('./lib/axios');
 
 },{"./lib/axios":"3QmO2"}],"3QmO2":[function(require,module,exports) {
@@ -41175,6 +41176,171 @@ ProfileView.propTypes = {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","axios":"iYoWk","prop-types":"1tgq3","./profile-view.scss":"gb0ga","../movie-card/movie-card":"6EiBJ","react-bootstrap":"h2YVd","react-router-dom":"cpyQW","@parcel/transformer-js/src/esmodule-helpers.js":"77v8L","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4RpjY"}],"gb0ga":[function() {},{}],"eqSoH":[function() {},{}],"jUTZ8":[function() {},{}]},["2hoo5","ioDRo","dLPEP"], "dLPEP", "parcelRequireaec4")
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","axios":"iYoWk","prop-types":"1tgq3","./profile-view.scss":"gb0ga","../movie-card/movie-card":"6EiBJ","react-bootstrap":"h2YVd","react-router-dom":"cpyQW","@parcel/transformer-js/src/esmodule-helpers.js":"77v8L","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4RpjY"}],"gb0ga":[function() {},{}],"eqSoH":[function() {},{}],"8WCoL":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$5f0a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$5f0a.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "GenreView", ()=>GenreView
+);
+var _jsxRuntime = require("react/jsx-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _propTypes = require("prop-types");
+var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
+var _reactRouterDom = require("react-router-dom");
+var _reactBootstrap = require("react-bootstrap");
+var _genreViewScss = require("./genre-view.scss");
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+class GenreView extends _reactDefault.default.Component {
+    constructor(props){
+        super();
+        this.state = {
+            movie: this.state,
+            genre: []
+        };
+    }
+    componentDidMount() {
+        let accessToken = localStorage.getItem('token');
+        if (accessToken !== null) {
+            this.setState({
+                user: localStorage.getItem('user')
+            });
+            this.getGenre(accessToken);
+        }
+    }
+    getGenre(token) {
+        const movie = this.state;
+        const genre = movie.Genre;
+        _axiosDefault.default.get(`https://k-flix.herokuapp.com/genres/`, {
+            headers: {
+                Authorization: `Bearer $(token)`
+            }
+        }).then((response)=>{
+            console.log('response', response);
+            this.setState({
+                genre: response.data.Genre
+            });
+        }).catch(function(error) {
+            console.log(error);
+        });
+    }
+    render() {
+        const { genre , onBackClick  } = this.props;
+        return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Container, {
+            fluid: true,
+            className: "genre-view-container",
+            __source: {
+                fileName: "src/components/genre-view/genre-view.jsx",
+                lineNumber: 52
+            },
+            __self: this,
+            children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
+                __source: {
+                    fileName: "src/components/genre-view/genre-view.jsx",
+                    lineNumber: 53
+                },
+                __self: this,
+                children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
+                    __source: {
+                        fileName: "src/components/genre-view/genre-view.jsx",
+                        lineNumber: 54
+                    },
+                    __self: this,
+                    children: /*#__PURE__*/ _jsxRuntime.jsxs("div", {
+                        className: "genre-view",
+                        __source: {
+                            fileName: "src/components/genre-view/genre-view.jsx",
+                            lineNumber: 55
+                        },
+                        __self: this,
+                        children: [
+                            /*#__PURE__*/ _jsxRuntime.jsxs("div", {
+                                className: "genre-name",
+                                __source: {
+                                    fileName: "src/components/genre-view/genre-view.jsx",
+                                    lineNumber: 56
+                                },
+                                __self: this,
+                                children: [
+                                    /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                                        className: "genre",
+                                        __source: {
+                                            fileName: "src/components/genre-view/genre-view.jsx",
+                                            lineNumber: 57
+                                        },
+                                        __self: this,
+                                        children: "Genre: "
+                                    }),
+                                    /*#__PURE__*/ _jsxRuntime.jsxs("span", {
+                                        className: "value",
+                                        __source: {
+                                            fileName: "src/components/genre-view/genre-view.jsx",
+                                            lineNumber: 58
+                                        },
+                                        __self: this,
+                                        children: [
+                                            genre,
+                                            " "
+                                        ]
+                                    })
+                                ]
+                            }),
+                            /*#__PURE__*/ _jsxRuntime.jsxs("div", {
+                                className: "genre-description",
+                                __source: {
+                                    fileName: "src/components/genre-view/genre-view.jsx",
+                                    lineNumber: 60
+                                },
+                                __self: this,
+                                children: [
+                                    /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                                        className: "genre",
+                                        __source: {
+                                            fileName: "src/components/genre-view/genre-view.jsx",
+                                            lineNumber: 61
+                                        },
+                                        __self: this,
+                                        children: "Description: "
+                                    }),
+                                    /*#__PURE__*/ _jsxRuntime.jsxs("span", {
+                                        className: "value",
+                                        __source: {
+                                            fileName: "src/components/genre-view/genre-view.jsx",
+                                            lineNumber: 62
+                                        },
+                                        __self: this,
+                                        children: [
+                                            genre.Description,
+                                            " "
+                                        ]
+                                    })
+                                ]
+                            })
+                        ]
+                    })
+                })
+            })
+        }));
+    }
+}
+GenreView.propTypes = {
+    genre: _propTypesDefault.default.shape({
+        Name: _propTypesDefault.default.string.isRequired,
+        Description: _propTypesDefault.default.string.isRequired
+    }).isRequired
+};
+
+  $parcel$ReactRefreshHelpers$5f0a.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","prop-types":"1tgq3","react-router-dom":"cpyQW","react-bootstrap":"h2YVd","@parcel/transformer-js/src/esmodule-helpers.js":"77v8L","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4RpjY","./genre-view.scss":"3BqnD","axios":"iYoWk"}],"3BqnD":[function() {},{}],"jUTZ8":[function() {},{}]},["2hoo5","ioDRo","dLPEP"], "dLPEP", "parcelRequireaec4")
 
 //# sourceMappingURL=index.6701a6e1.js.map
