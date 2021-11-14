@@ -4,6 +4,8 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import {Card, Button, Row, Col, Container} from 'react-bootstrap';
 
+import { Link } from "react-router-dom";
+
 import './movie-card.scss';
 import '../navbar/navbar.scss'
 
@@ -11,7 +13,7 @@ export class MovieCard extends React.Component {
 
   render() {
 
-    const { movie, onMovieClick } = this.props;
+    const { movie } = this.props;
 
       return (
         <Container fluid className="movie-card-container">
@@ -22,7 +24,9 @@ export class MovieCard extends React.Component {
               <Card.Body>
                 <Card.Title>{movie.Title}</Card.Title>
                 <Card.Text>{movie.Description}</Card.Text>
-                <Button className="movie-card-button" onClick={() => onMovieClick(movie)} variant="link">Open</Button>
+                <Link to={`/movies/${movie._id}`}>
+                  <Button className="movie-card-button" variant="link">Open</Button>
+                </Link>
               </Card.Body>
             </Card>
             </Col>
