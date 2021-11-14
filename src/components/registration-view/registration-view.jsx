@@ -25,7 +25,7 @@ export function RegistrationView(props) {
     .then(response => {
       const data = response.data;
       console.log(data);
-      window.open('/', '_self');
+      window.open('/', '_self'); //'_self' is necessary to open the page in the current tab
     })
     .catch(e => {
       console.log('error registering the user')
