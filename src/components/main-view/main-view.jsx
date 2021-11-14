@@ -10,6 +10,7 @@ import { RegistrationView } from '../registration-view/registration-view';
 import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
+import { ProfileView } from '../profile-view/profile-view';
 
 import '../navbar/navbar.scss'
 import LogoImage from '../../img/logo.png'
@@ -24,6 +25,17 @@ export class MainView extends React.Component {
       movies: [],
       user: null
     };
+  }
+
+// persisting login data
+  componentDidMount(){
+    let accessToken = localStorage.getItem('token');
+    if (accessToken !== null) {
+      this.setState({
+        user: localStorage.getItem('user')
+      });
+      this.getMovies(accessToken);
+    }
   }
 
 /* getMovies, GET request with Axios to 'movies' endpoint of API */
@@ -41,17 +53,6 @@ getMovies(token) {
     console.log(error);
   });
 }
-
-// persisting login data
-  componentDidMount(){
-    let accessToken = localStorage.getItem('token');
-    if (accessToken !== null) {
-      this.setState({
-        user: localStorage.getItem('user')
-      });
-      this.getMovies(accessToken);
-    }
-  }
 
 /* When a user successfully logs in, this function updates the 'user' property in state
 to that particular user, storing login data in LocalStorage */
