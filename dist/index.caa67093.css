@@ -136,4 +136,17 @@ img {
 .movie-view-button:hover {
   background-color: #000;
 }
+.movie-card {
+  width: auto;
+}
+
+.unfavorite-movie-button {
+  width: 60%;
+  margin: auto;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  text-align: center;
+  display: block;
+}
+
 /*# sourceMappingURL=index.caa67093.css.map */
