@@ -22927,6 +22927,16 @@ class MainView extends _reactDefault.default.Component {
             user: null
         };
     }
+    // persisting login data
+    componentDidMount() {
+        let accessToken = localStorage.getItem('token');
+        if (accessToken !== null) {
+            this.setState({
+                user: localStorage.getItem('user')
+            });
+            this.getMovies(accessToken);
+        }
+    }
     /* getMovies, GET request with Axios to 'movies' endpoint of API */ getMovies(token) {
         _axiosDefault.default.get('http://k-flix.herokuapp.com/movies', {
             headers: {
@@ -22941,16 +22951,6 @@ class MainView extends _reactDefault.default.Component {
             console.log(error);
         });
     }
-    // persisting login data
-    componentDidMount() {
-        let accessToken = localStorage.getItem('token');
-        if (accessToken !== null) {
-            this.setState({
-                user: localStorage.getItem('user')
-            });
-            this.getMovies(accessToken);
-        }
-    }
     /* When a user successfully logs in, this function updates the 'user' property in state
 to that particular user, storing login data in LocalStorage */ onLoggedIn(authData) {
         console.log(authData);
@@ -22963,49 +22963,17 @@ to that particular user, storing login data in LocalStorage */ onLoggedIn(authDa
     }
     render() {
         const { movies , user  } = this.state;
-        /* if there is no user, the LoginView is rendered. If there is a user
-logged in, the user details are passed as a prop to the LoginView */ if (!user) return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
-            __source: {
-                fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 79
-            },
-            __self: this,
-            children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
-                __source: {
-                    fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 80
-                },
-                __self: this,
-                children: /*#__PURE__*/ _jsxRuntime.jsx(_loginView.LoginView, {
-                    onLoggedIn: (user1)=>this.onLoggedIn(user1)
-                    ,
-                    __source: {
-                        fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 81
-                    },
-                    __self: this
-                })
-            })
-        }));
-        if (movies.length === 0) return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
-            className: "main-view",
-            __source: {
-                fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 84
-            },
-            __self: this
-        }));
         return(/*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.BrowserRouter, {
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 87
+                lineNumber: 76
             },
             __self: this,
-            children: /*#__PURE__*/ _jsxRuntime.jsxs("div", {
+            children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Row, {
                 className: "main-view",
                 __source: {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 88
+                    lineNumber: 77
                 },
                 __self: this,
                 children: [
@@ -23032,13 +23000,16 @@ logged in, the user details are passed as a prop to the LoginView */ if (!user) 
                         },
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 90
+                            lineNumber: 79
                         },
                         __self: this
                     }),
                     /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
                         path: "/register",
                         render: ()=>{
+                            if (user) return(/*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Redirect, {
+                                to: "/"
+                            }));
                             return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
                                 children: /*#__PURE__*/ _jsxRuntime.jsx(_registrationView.RegistrationView, {
                                 })
@@ -23046,13 +23017,18 @@ logged in, the user details are passed as a prop to the LoginView */ if (!user) 
                         },
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 104
+                            lineNumber: 93
                         },
                         __self: this
                     }),
                     /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
                         path: "/movies/:movieId",
                         render: ({ match , history  })=>{
+                            if (!user) return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
+                                children: /*#__PURE__*/ _jsxRuntime.jsx(_loginView.LoginView, {
+                                    onLoggedIn: (user1)=>this.onLoggedIn(user1)
+                                })
+                            }));
                             if (movies.length === 0) return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
                                 className: "main-view"
                             }));
@@ -23067,13 +23043,18 @@ logged in, the user details are passed as a prop to the LoginView */ if (!user) 
                         },
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 110
+                            lineNumber: 101
                         },
                         __self: this
                     }),
                     /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
                         path: "/genres/:name",
                         render: ({ match , history  })=>{
+                            if (!user) return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
+                                children: /*#__PURE__*/ _jsxRuntime.jsx(_loginView.LoginView, {
+                                    onLoggedIn: (user1)=>this.onLoggedIn(user1)
+                                })
+                            }));
                             if (movies.length === 0) return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
                                 className: "main-view"
                             }));
@@ -23088,13 +23069,18 @@ logged in, the user details are passed as a prop to the LoginView */ if (!user) 
                         },
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 118
+                            lineNumber: 113
                         },
                         __self: this
                     }),
                     /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
                         path: "/directors/:name",
                         render: ({ match , history  })=>{
+                            if (!user) return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
+                                children: /*#__PURE__*/ _jsxRuntime.jsx(_loginView.LoginView, {
+                                    onLoggedIn: (user1)=>this.onLoggedIn(user1)
+                                })
+                            }));
                             if (movies.length === 0) return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
                                 className: "main-view"
                             }));
@@ -23109,7 +23095,7 @@ logged in, the user details are passed as a prop to the LoginView */ if (!user) 
                         },
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 126
+                            lineNumber: 125
                         },
                         __self: this
                     })
@@ -40279,7 +40265,7 @@ MovieCard.propTypes = {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","prop-types":"1tgq3","react-bootstrap/Button":"9CzHT","react-bootstrap/Card":"MoOk8","react-bootstrap":"h2YVd","./movie-card.scss":"cF5gT","../navbar/navbar.scss":"eqSoH","@parcel/transformer-js/src/esmodule-helpers.js":"77v8L","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4RpjY","react-router-dom":"cpyQW"}],"cF5gT":[function() {},{}],"eqSoH":[function() {},{}],"ikZdr":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","prop-types":"1tgq3","react-bootstrap/Button":"9CzHT","react-bootstrap/Card":"MoOk8","react-bootstrap":"h2YVd","react-router-dom":"cpyQW","./movie-card.scss":"cF5gT","../navbar/navbar.scss":"eqSoH","@parcel/transformer-js/src/esmodule-helpers.js":"77v8L","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4RpjY"}],"cF5gT":[function() {},{}],"eqSoH":[function() {},{}],"ikZdr":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$3741 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -40560,6 +40546,6 @@ MovieView.propTypes = {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","prop-types":"1tgq3","react-bootstrap":"h2YVd","./movie-view.scss":"kvL93","@parcel/transformer-js/src/esmodule-helpers.js":"77v8L","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4RpjY","react-router-dom":"cpyQW"}],"kvL93":[function() {},{}],"eqSoH":[function() {},{}],"jUTZ8":[function() {},{}]},["2hoo5","ioDRo","dLPEP"], "dLPEP", "parcelRequireaec4")
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","prop-types":"1tgq3","react-router-dom":"cpyQW","react-bootstrap":"h2YVd","./movie-view.scss":"kvL93","@parcel/transformer-js/src/esmodule-helpers.js":"77v8L","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4RpjY"}],"kvL93":[function() {},{}],"eqSoH":[function() {},{}],"jUTZ8":[function() {},{}]},["2hoo5","ioDRo","dLPEP"], "dLPEP", "parcelRequireaec4")
 
 //# sourceMappingURL=index.6701a6e1.js.map
