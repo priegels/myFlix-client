@@ -10,6 +10,9 @@ import { RegistrationView } from '../registration-view/registration-view';
 import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
+import { ProfileView } from '../profile-view/profile-view';
+import { GenreView } from '../genre-view/genre-view';
+import { DirectorView } from '../director-view/director-view';
 
 
 import '../navbar/navbar.scss'
@@ -117,7 +120,7 @@ to that particular user, storing login data in LocalStorage */
 
             if (movies.length === 0) return <div className="main-view" />;
             return <Col md={8}>
-              <GenreView genre={movies.find(m => m.Genre.Name === match.params.name).Genre} onBackClick={() => history.goBack()} />
+              <GenreView genre={movies.find(m => m.Genre._id === match.params.genreId).Genre} onBackClick={() => history.goBack()} />
             </Col>
           }
           } /> 
@@ -133,6 +136,16 @@ to that particular user, storing login data in LocalStorage */
             </Col>
           }
           } />
+
+          <Route path="/users/:username" render={({ history }) => {
+            if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+
+            if (movies.length === 0) return <div className="main-view"></div>;
+
+            return <ProfileView movies={movies} user={user} onBackClick={() => history.goBack()} />
+          }
+          }/>
+
         </Row>
 
 
