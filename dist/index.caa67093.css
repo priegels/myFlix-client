@@ -24,20 +24,26 @@ body {
   background-color: #000 !important;
   border-color: #000;
 }
-.navbar {
+.navbar-header {
   width: 100%;
-  height: 75px;
+  height: auto;
   background-color: red;
 }
 
 .navbar-collapse {
-  flex-grow: unset !important;
+  justify-content: end;
 }
 
 .nav-link {
   color: #033159 !important;
   font-size: 14pt;
   font-weight: bold;
+  margin: auto;
+}
+
+.navbar-logout {
+  background-color: #033159;
+  border: none;
 }
 
 .navbar-logo {
@@ -62,6 +68,16 @@ body {
   border-color: #000;
 }
 
+.login-button:active {
+  border: none !important;
+  background-color: black !important;
+}
+
+.login-button:focus {
+  border: none !important;
+  background-color: black;
+}
+
 .login-register-button {
   background-color: white;
   color: black;
@@ -73,6 +89,8 @@ body {
 .login-register-button:hover {
   background-color: #000;
   border-color: #000;
+  color: white;
+  text-decoration: none;
 }
 .movie-card-container {
   display: inline-block;
@@ -148,5 +166,6 @@ img {
   text-align: center;
   display: block;
 }
+
 
 /*# sourceMappingURL=index.caa67093.css.map */
