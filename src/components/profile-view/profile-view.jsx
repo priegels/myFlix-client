@@ -6,7 +6,7 @@ import './profile-view.scss';
 
 import { MovieCard } from '../movie-card/movie-card';
 
-import { Form, Button, Card, CardGroup, Container, Row, Col } from 'react-bootstrap';
+import { Form, Button, Card, Container, Row, Col } from 'react-bootstrap';
 
 import { Link } from 'react-router-dom';
 
@@ -96,15 +96,16 @@ export class ProfileView extends React.Component {
 
   // Delete FavMovie 
 
-  onRemoveFavorite() {
+  onRemoveFavorite(id) {
     const username = localStorage.getItem('user');
     const token = localStorage.getItem('token');
 
-    axios.delete(`https://k-flix.herokuapp.com/users/${username}/movies/${movie._id}`, {
+    axios.delete(`https://k-flix.herokuapp.com/users/${username}/movies/` + (id), {
       headers: { Authorization: `Bearer ${token}` }
     })
     .then((response) => {
       console.log(response);
+      alert("Movie was removed");
       this.componentDidMount();
     })
     .catch(function (error) {
@@ -115,9 +116,10 @@ export class ProfileView extends React.Component {
   //Delete user
 
   onDeleteUser() {
+
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
-    axios.delete(`https://k-flix.herokuapp.com/users(${username}`, {
+    axios.delete(`https://k-flix.herokuapp.com/users/${username}`, {
       headers: { Authorization: `Bearer ${token}` }
     })
     .then((response) => {
@@ -161,7 +163,7 @@ export class ProfileView extends React.Component {
 
         <Container className="d-flex flex-row justify-content-end align-items-baseline">
           <div className="mr-2">
-            <p>Signed in as <span> <Link to={`users/${user}`}>{this.state.Username}</Link> </span> </p>
+            <p>Signed in as <span> <Link to={`/users/${user}`}>{this.state.Username}</Link> </span> </p>
           </div>
           <Button variant ="danger" onClick={() => { this.onLoggedOut() }}>Log out</Button>
           <Button className="back-profile-button" variant="danger" onClick={() => { onBackClick() }}>Back</Button>
@@ -178,7 +180,7 @@ export class ProfileView extends React.Component {
                   <p>{this.state.Email}</p>
                 <h6>Birthday</h6>
                   <p>{this.state.Birthday}</p>           
-                <Button variant="danger" onClick={() => this.onDeleteUser()}>Delete Profile</Button>
+                <Button variant="danger" onClick={() => this.onDeleteUser()} >Delete Profile</Button>
               </Card.Body>
             </Card>
           </Col>
