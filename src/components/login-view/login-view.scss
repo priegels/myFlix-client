@@ -16,6 +16,17 @@
   border-color: #000;
 }
 
+.login-button:active {
+  border: none !important;
+  background-color: black !important;
+}
+
+
+.login-button:focus {
+  border: none !important;
+  background-color: black;
+}
+
 .login-register-button {
   background-color: white;
   color: black;
@@ -27,4 +38,6 @@
 .login-register-button:hover {
   background-color: #000;
   border-color: #000;
+  color: white;
+  text-decoration: none;
 }
