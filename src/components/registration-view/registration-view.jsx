@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+
 import {Form, Button, Container, Navbar, Nav, FormControl, Card} from 'react-bootstrap';
 import './registration-view.scss';
 import '../navbar/navbar.scss';
@@ -13,7 +15,7 @@ export function RegistrationView(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('https://k.flix.herokuapp.com/users', {
+    axios.post('https://k-flix.herokuapp.com/users', {
       Username: username,
       Password: password,
       Email: email,
