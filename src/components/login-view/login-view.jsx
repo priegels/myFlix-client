@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-import {Navbar, Nav, Form, FormControl, Button, Container, Card} from 'react-bootstrap';
+import { Link } from "react-router-dom";
+
+import { Form, Button, Container, Card} from 'react-bootstrap';
 import './login-view.scss';
 import '../navbar/navbar.scss';
 import LogoImage from '../../img/logo.png';
@@ -26,36 +28,13 @@ export function LoginView(props) {
     })
     .catch(e => {
       console.log('no such user')
+      alert('Wrong username or password.')
     });
   };
 
   return (
 
     <Container fluid className="register-container">
-     
-      <Navbar className="navbar" expand="lg">
-        <Container fluid>
-          <Navbar.Brand className="navbar-logo" href="#home">
-            <img src={LogoImage}
-            className="navbar-logo d-inline-block align-top"/>
-           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link href="#home">Home</Nav.Link>
-              <Nav.Link href="#profile">Profile</Nav.Link>
-            </Nav>
-            <Form className="d-flex">
-              <FormControl
-                type="search"
-                placeholder="Search"
-                className="me-2"
-                aria-label="Search"
-              />
-            </Form>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
       
       <Card className="loginCard" style={{ width: '18rem', color: '#fff' }}>
         <Card.Body>
@@ -79,12 +58,14 @@ export function LoginView(props) {
               />
           </Form.Group>
             <br />
-          <Button className="login-button" variant="primary" type="submit" onClick={handleSubmit}>
+          <Button className="login-button" type="submit" onClick={handleSubmit}>
             Login
           </Button>
-          <Button className="login-register-button" variant="primary" type="submit" onClick={handleSubmit}>
+          <Link to={`/register`}>
+            <Button className="login-register-button" variant="link">
             Register
-          </Button>
+            </Button>
+          </Link>
         </Form>
       </Card.Body>
     </Card>
