@@ -15,8 +15,8 @@ import { GenreView } from '../genre-view/genre-view';
 import { DirectorView } from '../director-view/director-view';
 
 
-import '../navbar/navbar.scss'
-import LogoImage from '../../img/logo.png'
+import '../navbar/navbar.scss';
+import LogoImage from '../../img/logo.png';
 
 export class MainView extends React.Component {
 
@@ -71,12 +71,49 @@ to that particular user, storing login data in LocalStorage */
     this.getMovies(authData.token);
   }
 
+  onLoggedOut() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    this.setState({
+      user: null
+    });
+    window.open('/', '_self');
+  }
+
   render() {
     
     const { movies, user } = this.state;
+    console.log("movies", this.state.movies);
     
     return (
       <Router>
+
+        <Container fluid>
+          <Navbar className="navbar-header" expand="lg">
+            <Navbar.Brand className="navbar-logo" href="/">
+              <img src={LogoImage}
+              className="navbar-logo d-inline-block align-top"/>
+            </Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="me-auto">
+                <Nav.Link className="navbar-link" href="/">Home</Nav.Link>
+                <Nav.Link className="navbar-link" href="/users/${user}">Profile</Nav.Link>
+                <Nav.Link href="#logout">
+                  <Button className="navbar-logout" variant="primary" onClick={() => { this.onLoggedOut() }}>Logout</Button>
+                </Nav.Link>
+              </Nav>
+              <Form className="d-flex">
+                <FormControl
+                  type="search"
+                  placeholder="Search"
+                  className="me-2"
+                  aria-label="Search"
+                />
+              </Form>
+            </Navbar.Collapse>
+          </Navbar> 
+
         <Row className="main-view">
 
           <Route exact path="/" render={() => {
@@ -132,7 +169,7 @@ to that particular user, storing login data in LocalStorage */
 
             if (movies.length === 0) return <div className="main-view" />;
             return <Col md={8}>
-              <DirectorView director={movies.find(m => m.Director.Name === match.params.name).Director} onBackClick={() => history.goBack()} />
+              <DirectorView director={movies.find(m => m.Director._id === match.params.directorId).Director} onBackClick={() => history.goBack()} />
             </Col>
           }
           } />
@@ -148,6 +185,7 @@ to that particular user, storing login data in LocalStorage */
 
         </Row>
 
+        </Container>
 
      </Router>
     );
