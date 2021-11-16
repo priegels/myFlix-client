@@ -1,17 +1,23 @@
-.navbar {
+.navbar-header {
   width: 100%;
-  height: 75px;
+  height: auto;
   background-color: red;
 }
 
 .navbar-collapse {
-  flex-grow: unset !important;
+  justify-content: end;
 }
 
 .nav-link {
   color: #033159 !important;
   font-size: 14pt;
   font-weight: bold;
+  margin: auto;
+}
+
+.navbar-logout {
+  background-color: #033159;
+  border: none;
 }
 
 .navbar-logo {
