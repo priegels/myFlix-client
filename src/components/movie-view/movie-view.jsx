@@ -13,6 +13,8 @@ export class MovieView extends React.Component {
   render() {
     const { movie, onBackClick } = this.props;
 
+console.log("movie", movie);
+
     return (
       <div className="movie-view">
         <Row className="mt-5 pt-5">
@@ -36,8 +38,8 @@ export class MovieView extends React.Component {
             <Row className="movie-genre">
               <Col className="label" md={2}>Genre: </Col>
               <Col className="value">
-              <Link to={`/genres/${movie.Genre}`}>
-                <Button variant="link">{movie.Genre}</Button>
+              <Link to={`/genres/${movie.Genre.Name}`}>
+                <Button variant="link">{movie.Genre.Name}</Button>
               </Link>
               </Col>
             </Row>
