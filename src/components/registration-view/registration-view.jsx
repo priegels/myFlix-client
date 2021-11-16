@@ -32,30 +32,6 @@ export function RegistrationView(props) {
   return (
 
     <Container fluid className="register-container">
-     
-      <Navbar className="navbar" expand="lg">
-        <Container fluid>
-          <Navbar.Brand className="navbar-logo" href="#home">
-            <img src={LogoImage}
-            className="navbar-logo d-inline-block align-top"/>
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link href="#home">Home</Nav.Link>
-              <Nav.Link href="#profile">Profile</Nav.Link>
-            </Nav>
-            <Form className="d-flex">
-              <FormControl
-                type="search"
-                placeholder="Search"
-                className="me-2"
-                aria-label="Search"
-              />
-            </Form>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
       
       <Card className="register-card" style={{ width: '18rem', color: "#fff" }}>
         <Card.Body>
