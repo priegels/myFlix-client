@@ -48,6 +48,7 @@ export class GenreView extends React.Component {
   
     render() {
       const { Genre } = this.state;
+      console.log("Genre", Genre);
   
       return (
         <Container className="mt-5">  
