@@ -92,36 +92,6 @@ body {
   color: white;
   text-decoration: none;
 }
-.movie-card-container {
-  display: inline-block;
-}
-
-.movie-card {
-  width: 100%;
-  height: 700px;
-  overflow: hidden;
-}
-
-.col {
-  padding: 0px !important;
-}
-
-.movie-card-button {
-  color: #033159;
-  position: absolute;
-  bottom: 0px;
-  display: inline-block;
-  background-color: white;
-  width: 85%;
-  box-sizing: border-box;
-}
-
-@media all and (max-width: 1200px) {
-  .movie-card-image {
-    height: 350px;
-    object-fit: contain;
-  }
-}
 .movie-view {
   margin-top: 50px;
 }
@@ -165,6 +135,36 @@ img {
   margin-bottom: 10px;
   text-align: center;
   display: block;
+}
+.movie-card-container {
+  display: inline-block;
+}
+
+.movie-card {
+  width: 100%;
+  height: 700px;
+  overflow: hidden;
+}
+
+.col {
+  padding: 0px !important;
+}
+
+.movie-card-button {
+  color: #033159;
+  position: absolute;
+  bottom: 0px;
+  display: inline-block;
+  background-color: white;
+  width: 85%;
+  box-sizing: border-box;
+}
+
+@media all and (max-width: 1200px) {
+  .movie-card-image {
+    height: 350px;
+    object-fit: contain;
+  }
 }
 
 
