@@ -2,13 +2,22 @@ import React from 'react';
 // axios library to import database's API
 import axios from 'axios';
 
+import { connect } from 'react-redux';
+
 import { BrowserRouter as Router, Route, Redirect} from "react-router-dom";
+
+// #0
+import { setMovies } from '../../actions/actions';
+
+// not yet included
+import MoviesList from '../movies-list/movies-list';
 
 import {Row, Col, Container, Navbar, Nav, Form, FormControl, Button} from 'react-bootstrap';
 
 import { RegistrationView } from '../registration-view/registration-view';
 import { LoginView } from '../login-view/login-view';
-import { MovieCard } from '../movie-card/movie-card';
+// will be imported and used in MoviesList 
+// import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { ProfileView } from '../profile-view/profile-view';
 import { GenreView } from '../genre-view/genre-view';
@@ -18,14 +27,13 @@ import { DirectorView } from '../director-view/director-view';
 import '../navbar/navbar.scss';
 import LogoImage from '../../img/logo.png';
 
-export class MainView extends React.Component {
+class MainView extends React.Component {
 
   //constructor initializing a state's values before render()
   constructor(){
     super();
 // initial state set to null
     this.state = {
-      movies: [],
       user: null
     };
   }
@@ -47,10 +55,7 @@ getMovies(token) {
     headers: { Authorization: `Bearer ${token}`}
   })
   .then(response => {
-    // Assign the result to the state
-    this.setState({
-      movies: response.data
-    });
+    this.props.setMovies(response.data);
   })
   .catch(function (error) {
     console.log(error);
@@ -82,7 +87,8 @@ to that particular user, storing login data in LocalStorage */
 
   render() {
     
-    const { movies, user } = this.state;
+    let { movies } = this.props;
+    let { user } = this.state;
     console.log("movies", this.state.movies);
     
     return (
@@ -123,11 +129,7 @@ to that particular user, storing login data in LocalStorage */
 
             //Before the movies have been loaded
             if (movies.length === 0) return <div className="main-view" />;
-            return movies.map(m => (
-              <Col md={3} key={m._id}>
-                <MovieCard movie={m} />
-              </Col>
-            ))
+            return <MoviesList movies={movies}/>;
           }} />
 
           <Route path="/register" render={() => {
@@ -191,3 +193,9 @@ to that particular user, storing login data in LocalStorage */
     );
   }
 }
+
+let mapStateToProps = state => {
+  return { movies: state.movies }
+}
+
+export default connect(mapStateToProps, { setMovies } )(MainView);
