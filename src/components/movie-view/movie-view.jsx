@@ -13,49 +13,51 @@ export class MovieView extends React.Component {
   render() {
     const { movie, onBackClick } = this.props;
 
-console.log("movie", movie);
-
     return (
-      <div className="movie-view">
-        <Row className="mt-5 pt-5">
-          <Col>
+        <Container fluid>
             <Row>
-              <Col className="movie-poster value"><img src={movie.ImagePath} /></Col>
+              <Col className="movie-poster value"><img className="movie-poster-img" src={movie.ImagePath} /></Col>
             </Row>
             <Row className="movie-title">
-              <Col className="value pb-5" style={{fontSize:"40px"}}>{movie.Title}</Col>
+              <Col style={{fontSize:"40px"}}>{movie.Title}</Col>
             </Row>
+            <Row className="movie-props">
+              <Col>
             <Row className="movie-description">
-              <Col className="label pt-2"md={2}>Description: </Col>
+              <Col>Description: </Col>
             </Row>
-            <Row className="movie-description">
-              <Col className="value">{movie.Description}</Col>
+            <Row className="movie-description-text">
+              <Col className="value" md={12}>{movie.Description}</Col>
             </Row>
             <Row className="movie-release-date">
-              <Col className="label pt-2"md={2}>Release Date: </Col>
-              <Col className="value">{movie.ReleaseDate}</Col>
+              <Col>Release Date: </Col>
+            </Row>
+            <Row>
+              <Col className="movie-release-date value" md={12}>{movie.ReleaseDate}</Col>
             </Row>
             <Row className="movie-genre">
-              <Col className="label" md={2}>Genre: </Col>
-              <Col className="value">
-              <Link to={`/genres/${movie.Genre.Name}`}>
-                <Button variant="link">{movie.Genre.Name}</Button>
+              <Col className="label">Genre: </Col>
+              <Col className="value" md={12}>
+              <Link to={`/genres/${movie.Genre}`}>
+                <Button className="props-button" variant="link">{movie.Genre}</Button>
               </Link>
               </Col>
             </Row>
 
             <Row className="movie-director">
-              <Col className="label"md={2}>Director: </Col>
-              <Col className="value">
+              <Col className="label">Director: </Col>
+              <Col className="value" md={12}>
               <Link to={`/directors/${movie.Director}`}>
-                <Button variant="link">Director</Button>
+                <Button className="props-button" variant="link">Director</Button>
               </Link>
               </Col>
             </Row>
-            <Button className="mt-3" variant="outline-light" onClick={() => { onBackClick(null); }}>Back</Button>
-          </Col>
-        </Row>
-       </div>
+            </Col>
+            </Row>
+            <Row>
+            <Button className="movie-view-button" onClick={() => { onBackClick(null); }}>Back</Button>
+            </Row>
+        </Container>
        
     );
   }
