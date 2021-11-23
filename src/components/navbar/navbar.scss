@@ -20,6 +20,11 @@
   border: none;
 }
 
+.navbar-logout:hover, .navbar-logout:active, .navbar-logout:focus {
+  background-color: #000 !important;
+  border-color: #000 !important;
+}
+
 .navbar-logo {
   height: 50px;
   margin-bottom: 10px;
