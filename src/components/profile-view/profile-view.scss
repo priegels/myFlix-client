@@ -1,5 +1,34 @@
+.profile-info {
+  margin-top: 10px;
+}
+
+.col-edit-profile {
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+
+.edit-button {
+  margin-top: 10px;
+  background-color: #033159;
+  border: none;
+}
+
+.edit-button:hover, .edit-button:active, .edit-button:focus {
+  background-color: black !important;
+}
+
+.spacer {
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
 .movie-card {
   width: auto;
+}
+
+img {
+  max-width: 400px;
+  margin: auto;
 }
 
 .unfavorite-movie-button {
@@ -10,3 +39,4 @@
   text-align: center;
   display: block;
 }
+

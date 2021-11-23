@@ -161,15 +161,7 @@ export class ProfileView extends React.Component {
     return (
       <Container className="profile-view">
 
-        <Container className="d-flex flex-row justify-content-end align-items-baseline">
-          <div className="mr-2">
-            <p>Signed in as <span> <Link to={`/users/${user}`}>{this.state.Username}</Link> </span> </p>
-          </div>
-          <Button variant ="danger" onClick={() => { this.onLoggedOut() }}>Log out</Button>
-          <Button className="back-profile-button" variant="danger" onClick={() => { onBackClick() }}>Back</Button>
-        </Container>
-
-        <Row>
+        <Row className="profile-info">
           <Col xs={12} sm={4}>
             <Card>
               <Card.Body>
@@ -184,7 +176,7 @@ export class ProfileView extends React.Component {
               </Card.Body>
             </Card>
           </Col>
-          <Col>
+          <Col className="col-edit-profile"> 
             <Card>
               <Card.Body>
                 <h4>Edit Profile</h4>
@@ -205,21 +197,21 @@ export class ProfileView extends React.Component {
                     Username
                     <Form.Control type='date' name="Birthday" onChange={(e) => this.setBirthday(e.target.value)} required />
                   </Form.Group>
-                  <Button variant="success" type="submit" >Update</Button>
+                  <Button className="edit-button" variant="success" type="submit">Update</Button>
                 </Form>
               </Card.Body>
             </Card>
           </Col>
         </Row>
 
-        <Row>
+        <Row className="spacer">
           <Col xs={2}>
           <h2>Favorite Movies</h2>
           </Col>
         </Row>
         <Row>
           {FavoriteMovies.map((movie) => (
-            <Col xs={12} md={6} lg={3} key={movie._id}>
+            <Col key={movie._id}>
               <MovieCard movie={movie} />
               <Button className="unfavorite-movie-button" variant="danger" onClick={() => { this.onRemoveFavorite(movie._id) }} >Remove Favorite</Button>
             </Col>
