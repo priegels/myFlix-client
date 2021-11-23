@@ -2,27 +2,55 @@
 body {
   font-family: "Rubik", sans-serif;
 }
-.register-card {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 40px auto;
-  background-color: #033159 !important;
+.movie-card-container {
+  display: inline-block;
 }
 
-.register-container {
-  padding: 0 !important;
+.movie-card {
+  width: 100%;
+  height: 700px;
+  overflow: hidden;
 }
 
-.register-button {
-  background-color: red !important;
-  border-color: #000;
-  color: white !important;
+.movie-card-image {
+  min-height: 500px;
+  object-fit: cover;
 }
 
-.register-button:hover {
-  background-color: #000 !important;
-  border-color: #000;
+.col {
+  padding: 0px !important;
+}
+
+.movie-card-button {
+  color: #033159;
+  position: absolute;
+  bottom: 0px;
+  display: inline-block;
+  background-color: white;
+  right: 0px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  margin-bottom: 15px;
+}
+
+@media all and (max-width: 1200px) {
+  .movie-card-image {
+    height: 350px !important;
+    min-height: 350px;
+    max-height: 350px;
+    object-fit: cover !important;
+  }
+}
+@media all and (max-width: 767px) {
+  .movie-card-image {
+    height: 500px;
+    min-height: 500px;
+    max-height: 500px !important;
+    object-fit: contain !important;
+  }
 }
 .navbar-header {
   width: 100%;
@@ -46,9 +74,40 @@ body {
   border: none;
 }
 
+.navbar-logout:hover, .navbar-logout:active, .navbar-logout:focus {
+  background-color: #000 !important;
+  border-color: #000 !important;
+}
+
 .navbar-logo {
   height: 50px;
   margin-bottom: 10px;
+}
+.filter-bar {
+  margin: auto;
+  left: -15px;
+}
+.register-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px auto;
+  background-color: #033159 !important;
+}
+
+.register-container {
+  padding: 0 !important;
+}
+
+.register-button {
+  background-color: red !important;
+  border-color: #000;
+  color: white !important;
+}
+
+.register-button:hover {
+  background-color: #000 !important;
+  border-color: #000;
 }
 .loginCard {
   display: flex;
@@ -92,12 +151,10 @@ body {
   color: white;
   text-decoration: none;
 }
-.movie-view {
-  margin-top: 50px;
-}
-
 .movie-poster {
+  margin: auto;
   text-align: center;
+  margin-top: 50px;
   margin-bottom: 30px;
 }
 
@@ -106,9 +163,18 @@ body {
   margin-bottom: 50px;
 }
 
-img {
-  height: 500px;
+.movie-poster-img {
+  height: 600px;
   margin: auto;
+}
+
+.movie-title {
+  text-align: center;
+}
+
+.movie-props {
+  margin-left: 90px;
+  margin-right: 90px;
 }
 
 .movie-title, .movie-release-date, .movie-description, .movie-genre, .movie-director {
@@ -116,16 +182,60 @@ img {
   font-weight: 500;
 }
 
+.props-button {
+  padding: 0;
+}
+
 .movie-view-button {
+  margin: auto;
+  margin-bottom: 5px;
   background-color: #033159;
   border-color: #000;
 }
 
-.movie-view-button:hover {
-  background-color: #000;
+.movie-view-button:hover, .movie-view-button:focus, .movie-view-button:active {
+  background-color: #000 !important;
+  border-color: #000 !important;
 }
+
+@media all and (max-width: 509px) {
+  .movie-poster-img {
+    height: 400px !important;
+    max-height: 400px !important;
+    min-height: 400px !important;
+  }
+}
+.profile-info {
+  margin-top: 10px;
+}
+
+.col-edit-profile {
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+
+.edit-button {
+  margin-top: 10px;
+  background-color: #033159;
+  border: none;
+}
+
+.edit-button:hover, .edit-button:active, .edit-button:focus {
+  background-color: black !important;
+}
+
+.spacer {
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
 .movie-card {
   width: auto;
+}
+
+img {
+  max-width: 400px;
+  margin: auto;
 }
 
 .unfavorite-movie-button {
@@ -135,36 +245,6 @@ img {
   margin-bottom: 10px;
   text-align: center;
   display: block;
-}
-.movie-card-container {
-  display: inline-block;
-}
-
-.movie-card {
-  width: 100%;
-  height: 700px;
-  overflow: hidden;
-}
-
-.col {
-  padding: 0px !important;
-}
-
-.movie-card-button {
-  color: #033159;
-  position: absolute;
-  bottom: 0px;
-  display: inline-block;
-  background-color: white;
-  width: 85%;
-  box-sizing: border-box;
-}
-
-@media all and (max-width: 1200px) {
-  .movie-card-image {
-    height: 350px;
-    object-fit: contain;
-  }
 }
 
 
