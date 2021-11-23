@@ -109,14 +109,6 @@ to that particular user, storing login data in LocalStorage */
                   <Button className="navbar-logout" variant="primary" onClick={() => { this.onLoggedOut() }}>Logout</Button>
                 </Nav.Link>
               </Nav>
-              <Form className="d-flex">
-                <FormControl
-                  type="search"
-                  placeholder="Search"
-                  className="me-2"
-                  aria-label="Search"
-                />
-              </Form>
             </Navbar.Collapse>
           </Navbar> 
 
@@ -146,7 +138,7 @@ to that particular user, storing login data in LocalStorage */
             </Col>
 
             if (movies.length === 0) return <div className="main-view" />;
-            return <Col md={8}>
+            return <Col md={12}>
               <MovieView movie={movies.find(m => m._id === match.params.movieId)} onBackClick={() => history.goBack()} />
               </Col>
           }
