@@ -109,6 +109,21 @@ body {
   background-color: #000 !important;
   border-color: #000;
 }
+
+.register-back-button {
+  background-color: white;
+  color: black;
+  font-weight: 500;
+  border-color: #000;
+  margin-left: 60px;
+}
+
+.register-back-button:hover, .register-back-button:focus, .register-back-button:active {
+  background-color: #000;
+  border-color: #000;
+  color: white !important;
+  text-decoration: none;
+}
 .loginCard {
   display: flex;
   justify-content: center;
@@ -186,10 +201,25 @@ body {
   padding: 0;
 }
 
-.movie-view-button {
-  margin: auto;
+.buttons {
+  justify-content: center;
+}
+
+.add-favorite-button {
+  margin-right: 20px;
   margin-bottom: 5px;
   background-color: #033159;
+  border-color: #000;
+}
+
+.add-favorite-button:hover, .add-favorite-button:focus, .add-favorite-button:active {
+  background-color: #000 !important;
+  border-color: #000 !important;
+}
+
+.movie-view-button {
+  margin-bottom: 5px;
+  background-color: #ff0000;
   border-color: #000;
 }
 
