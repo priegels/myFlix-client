@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+import { Link } from 'react-router-dom';
+
 import {Form, Button, Container, Navbar, Nav, FormControl, Card} from 'react-bootstrap';
 import './registration-view.scss';
 import '../navbar/navbar.scss';
-
-import LogoImage from '../../img/logo.png';
 
 export function RegistrationView(props) {
   const [ username, setUsername ] = useState('');
   const [ password, setPassword ] = useState('');
   const [ email, setEmail ] = useState('');
   const [ Birthday, setBirthday ] = useState('');
-
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     axios.post('https://k-flix.herokuapp.com/users', {
@@ -30,7 +30,7 @@ export function RegistrationView(props) {
       console.log('error registering the user')
     });
   };
-
+  
   return (
 
     <Container fluid className="register-container">
@@ -55,7 +55,7 @@ export function RegistrationView(props) {
           <Form.Group>
             <Form.Label>Password:</Form.Label>
             <Form.Control 
-              type="text" 
+              type="password" 
               value={password}
               onChange={e => setPassword(e.target.value)}
               required
@@ -88,6 +88,9 @@ export function RegistrationView(props) {
           <Button className="register-button" type="submit" onClick={handleSubmit}>
             Register
           </Button>
+          <Link to="/">
+            <Button className="register-back-button" variant="link">Back</Button>
+          </Link>
         </Form>
       </Card.Body>
     </Card>
