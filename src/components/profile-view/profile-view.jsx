@@ -8,8 +8,6 @@ import { MovieCard } from '../movie-card/movie-card';
 
 import { Form, Button, Card, Container, Row, Col } from 'react-bootstrap';
 
-import { Link } from 'react-router-dom';
-
 export class ProfileView extends React.Component {
 
   constructor() {
@@ -27,15 +25,6 @@ export class ProfileView extends React.Component {
   componentDidMount() {
     const accessToken = localStorage.getItem('token');
     this.getUser(accessToken);
-  }
-
-  onLoggedOut() {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
-    this.setState({
-      user: null
-    });
-    window.open('/', '_self');
   }
 
   //profile
