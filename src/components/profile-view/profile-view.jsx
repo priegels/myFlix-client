@@ -8,6 +8,10 @@ import { MovieCard } from '../movie-card/movie-card';
 
 import { Form, Button, Card, Container, Row, Col } from 'react-bootstrap';
 
+import { setUser, updateUser } from '../../actions/actions';
+
+import { connect } from 'react-redux';
+
 export class ProfileView extends React.Component {
 
   constructor() {
@@ -141,7 +145,7 @@ export class ProfileView extends React.Component {
 
   render() {
 
-    const { onBackClick, movies, user } = this.props;
+    const { movies, user } = this.props;
 
     const FavoriteMovies = movies.filter(m => {
       return this.state.FavoriteMovies.includes(m._id)
@@ -213,11 +217,11 @@ export class ProfileView extends React.Component {
   }
 }
 
-ProfileView.propTypes = {
-  profile: PropTypes.shape({
-    Username: PropTypes.string.isRequired,
-    Password: PropTypes.string.isRequired,
-    Email: PropTypes.string.isRequired,
-    Birthday: PropTypes.string.isRequired
-  })
-};
+let mapStateToProps = state => {
+  return {
+    user: state.user,
+    movies: state.movies
+  }
+}
+
+export default connect(mapStateToProps, {setUser, updateUser})(ProfileView);
