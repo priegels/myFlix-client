@@ -1,105 +1,47 @@
 import React from 'react';
-import axios from 'axios';
 import PropTypes from 'prop-types';
-import { Container, Row, Col, Card } from 'react-bootstrap';
 
 import './director-view.scss';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 
 export class DirectorView extends React.Component {
+  render() {
 
-    constructor(props) {
-      super();
-       this.state = {
-         movie: this.state,
-         Director: []/* ,
-         Name: this.state,
-         Bio: this.state */ 
-      };
-    }
-  
-    componentDidMount() {
-      let accessToken = localStorage.getItem('token');
-        if (accessToken !== null) {
-          this.setState({
-            user: localStorage.getItem('user')
-          });
-          this.getGenre(accessToken);
-        }
-    }
-  
-    getGenre(token) {
-      const movie = this.state;
-      const Director = movie.Director;
-      axios
-        .get(`https://k-flix.herokuapp.com/directors/${Director._id}`, {
-          headers: { Authorization: `Bearer ${token}` },
-        })
-      .then(response => {
-        console.log('response', response )
-        // Assign the result to the state
-        this.setState({
-          Director: response.data.Director
-        });
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-    }
-  
-    render() {
-      const { Director } = this.state;
-      console.log("Director", Director);
-  
-      return (
-        <Container className="mt-5">  
-          <Card>
-            <Row>
-              <Col xs={12}>
-                <h4>Director</h4>
-              </Col>
+    const { director, onBackClick } = this.props;
+
+    return (
+      <Container fluid>
+        <Row>
+          <Col className="director-image value"><img className="director-img" src={director.ImagePath} /></Col>
+        </Row>
+        <Row className="director-name">
+          <Col style={{fontSize:"40px"}}>{director.Name}</Col>
+        </Row>
+
+        <Row className="director-props">
+          <Col>
+            <Row className="director-bio">
+              <Col>Bio: </Col>
             </Row>
-  
-            <Row>
-              <Col>
-                <Card.Body>
-                  <Row className="director-body ">
-                    <Card>
-                    {Director.length > 0 &&
-                      Director.map((movie) => {
-                        if (
-                          movie.Director ===
-                          Director.find((dir) => dir === Director._id)
-                        ) {
-                          return (
-                            <Card>
-                                <Row
-                                className="genre-item card-content"
-                                style={{ width: "16rem" }}
-                                key={Director._id}>
-                                </Row>
-                                <Row
-                                className="genre-item card-content"
-                                style={{ width: "16rem" }}
-                                key={Director.Bio}>
-                                </Row>
-                              </Card>
-                          )}}
-                      )
-                      }   
-                    </Card>
-                  </Row>
-                </Card.Body>
-              </Col>
+            <Row className="director-bio-content">
+              <Col className="value" md={12}>{director.Bio}</Col>
             </Row>
-          </Card>
-        </Container>
-      );
-    }
+          </Col>
+        </Row>
+        <Row className="buttons">
+          <Button className="director-back-button" onClick={() => { onBackClick(null); }}>Back</Button>
+        </Row>
+      </Container>
+    );
   }
+}
 
- DirectorView.prototype = {
+DirectorView.propTypes = {
+  movie: PropTypes.shape({
     Director: PropTypes.shape({
       Name: PropTypes.string.isRequired,
-      Bio: PropTypes.string
-    }).isRequired
-  };
+      Bio: PropTypes.string.isRequired,
+      ImagePath: PropTypes.string
+    }).isRequired,
+  })
+};
