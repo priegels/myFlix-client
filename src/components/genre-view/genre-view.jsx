@@ -1,105 +1,43 @@
 import React from 'react';
-import axios from 'axios';
 import PropTypes from 'prop-types';
-import { Container, Row, Col, Card } from 'react-bootstrap';
 
 import './genre-view.scss';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 
 export class GenreView extends React.Component {
+  render() {
 
-    constructor(props) {
-      super();
-       this.state = {
-         movie: this.state,
-         Genre: []/* ,
-         Name: this.state,
-         Description: this.state */ 
-      };
-    }
-  
-    componentDidMount() {
-      let accessToken = localStorage.getItem('token');
-        if (accessToken !== null) {
-          this.setState({
-            user: localStorage.getItem('user')
-          });
-          this.getGenre(accessToken);
-        }
-    }
-  
-    getGenre(token) {
-      const movie = this.state;
-      const Genre = movie.Genre;
-      axios
-        .get(`https://k-flix.herokuapp.com/genres/${Genre._id}`, {
-          headers: { Authorization: `Bearer ${token}` },
-        })
-      .then(response => {
-        console.log('response', response )
-        // Assign the result to the state
-        this.setState({
-          Genre: response.data.Genre
-        });
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-    }
-  
-    render() {
-      const { Genre } = this.state;
-      console.log("Genre", Genre);
-  
-      return (
-        <Container className="mt-5">  
-          <Card>
-            <Row>
-              <Col xs={12}>
-                <h4>Genre</h4>
-              </Col>
+    const { genre, onBackClick } = this.props;
+
+    return (
+      <Container fluid>
+        <Row className="genre-name">
+          <Col style={{fontSize:"40px"}}>{genre.Name}</Col>
+        </Row>
+
+        <Row className="genre-props">
+          <Col>
+            <Row className="genre-description">
+              <Col>Description: </Col>
             </Row>
-  
-            <Row>
-              <Col>
-                <Card.Body>
-                  <Row className="genre-body ">
-                    <Card>
-                    {Genre.length > 0 &&
-                      Genre.map((movie) => {
-                        if (
-                          movie.Genre ===
-                          Genre.find((gen) => gen === Genre._id)
-                        ) {
-                          return (
-                            <Card>
-                                <Row
-                                className="genre-item card-content"
-                                style={{ width: "16rem" }}
-                                key={Genre._id}>
-                                </Row>
-                                <Row
-                                className="genre-item card-content"
-                                style={{ width: "16rem" }}
-                                key={Genre.Description}>
-                                </Row>
-                              </Card>
-                          )}}
-                      )
-                      }   
-                    </Card>
-                  </Row>
-                </Card.Body>
-              </Col>
+            <Row className="genre-description-content">
+              <Col className="value" md={12}>{genre.Description}</Col>
             </Row>
-          </Card>
-        </Container>
-      );
-    }
+          </Col>
+        </Row>
+        <Row className="buttons">
+          <Button className="genre-back-button" onClick={() => { onBackClick(null); }}>Back</Button>
+        </Row>
+      </Container>
+    );
   }
+}
 
- GenreView.prototype = {
+GenreView.propTypes = {
+  movie: PropTypes.shape({
     Genre: PropTypes.shape({
       Name: PropTypes.string.isRequired,
-      Description: PropTypes.string
-    }).isRequired
-  };
+      Description: PropTypes.string.isRequired,
+    }).isRequired,
+  })
+};

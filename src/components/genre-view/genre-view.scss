@@ -1,0 +1,28 @@
+.genre-name  {
+  text-align: center;
+  font-weight: 500;
+  margin-top: 50px;
+}
+  
+.genre-props {
+  margin-left: 90px;
+  margin-right: 90px;
+}
+  
+.genre-description {
+  font-size: 18px;
+  font-weight: 500;
+}
+  
+.genre-back-button {
+  margin-bottom: 5px;
+  margin-top: 5px;
+  background-color: #033159;
+  border-color: #000;
+  align-items: center;
+}
+  
+.genre-back-button:hover, .genre-back-button:focus, .genre-back-button:active {
+  background-color: #000 !important;
+  border-color: #000 !important;
+}
