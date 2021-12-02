@@ -3,6 +3,13 @@
 ## Purpose
 This is the client-side for the application K-Flix based on its existing server-side code (REST API and database).
 
+## How to run
+"npm install" to install all necessary packages displayed in package.json
+
+Start the server by typing "npm run start".
+
+localhost:1234 in URL in the browser should then display the app. 
+
 ## Built with
 MERN tech stack
 - MongoDB
