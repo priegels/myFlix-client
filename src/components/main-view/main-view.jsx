@@ -150,9 +150,8 @@ to that particular user, storing login data in LocalStorage */
             </Col>
 
             if (movies.length === 0) return <div className="main-view" />;
-            return <Col md={8}>
-              <GenreView genre={movies.find(m => m.Genre._id === match.params.genreId).Genre} onBackClick={() => history.goBack()} />
-            </Col>
+            return <Col md={12}>
+              <GenreView genre={movies.find(m => m.Genre.Name === match.params.name).Genre} onBackClick={() => history.goBack()} />            </Col>
           }
           } /> 
 
@@ -162,8 +161,8 @@ to that particular user, storing login data in LocalStorage */
             </Col>
 
             if (movies.length === 0) return <div className="main-view" />;
-            return <Col md={8}>
-              <DirectorView director={movies.find(m => m.Director._id === match.params.directorId).Director} onBackClick={() => history.goBack()} />
+            return <Col md={12}>
+              <DirectorView director={movies.find(m => m.Director.Name === match.params.name).Director} onBackClick={() => history.goBack()} />
             </Col>
           }
           } />
